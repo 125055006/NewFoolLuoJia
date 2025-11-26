@@ -1,0 +1,27 @@
+#ifndef MYCLIENT_H
+#define MYCLIENT_H
+
+#include <QObject>
+#include <QTcpSocket>
+#include <QDebug>
+
+class MyClient : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit MyClient(QObject *parent = nullptr);
+    void connectToServer(const QString &host, quint16 port);
+    void sendMessage(const QString &message);
+
+private slots:
+    void onConnected();
+    void onReadyRead();
+    void onErrorOccurred(QAbstractSocket::SocketError error);
+signals:
+    void Rece
+private:
+    QTcpSocket *socket;
+};
+
+#endif // MYCLIENT_H
