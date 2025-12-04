@@ -39,6 +39,26 @@ void MyServer::onClientReadyRead()
     QString message = QString::fromUtf8(data);
     qDebug() << "收到客户端消息:" << message << "来自:" << clientSocket->peerAddress().toString();
     sendToAllClients(clientSocket->peerAddress().toString() + " : " + message);
+    if(message.startsWith("课程信息："))
+    {
+        QString temp="课程信息：";
+        QString courses=message.mid(temp.length());      //去掉开头的识别信息,防止因中文可能占用多个字节出错
+        emit SendCourses(courses);
+    }
+    if(message.startsWith("教评信息"))
+    {
+        QString temp="教评信息";
+        QString com_Info=message.mid(temp.length());
+        qDebug()<<"已收到教评信息";
+        emit SendCom_Info(com_Info);
+    }
+    /*if(message.startsWith("借书目标"))
+    {
+        QString temp="借书目标";
+        QString target=message.mid(temp.length());
+        qDebug()<<"收到借书目标"<<target;
+        emit SendTargetBook(target);
+    }*/
 }
 
 void MyServer::onClientDisconnected()
@@ -57,6 +77,7 @@ void MyServer::sendToAllClients(const QString &message)   //发信息
 
     for (QTcpSocket *client : clients) {
         if (client->state() == QTcpSocket::ConnectedState) {
+            qDebug()<<"服务器已发送";
             client->write(data);
         }
     }
