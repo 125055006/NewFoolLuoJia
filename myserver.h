@@ -6,7 +6,7 @@
 #include <QTcpSocket>
 #include <QList>
 #include <QDebug>
-
+#include<QMessageBox>
 class MyServer : public QObject
 {
     Q_OBJECT
@@ -20,7 +20,11 @@ private slots:
     void onNewConnection();
     void onClientReadyRead();
     void onClientDisconnected();
-
+signals:
+   // void GetStuInfo(const QString &info);
+    void SendCourses(const QString &course);
+    void SendCom_Info(const QString &com_Info);
+    //void SendTargetBook(const QString &target);
 private:
     QTcpServer *server;
     QList<QTcpSocket*> clients;

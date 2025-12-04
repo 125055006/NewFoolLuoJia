@@ -35,6 +35,33 @@ void MyClient::onReadyRead()
     QByteArray data = socket->readAll();
     QString message = QString::fromUtf8(data);
     qDebug() << "收到消息:" << message;
+    if(message.startsWith("学生信息"))       //通过前缀检查信息类型
+    {
+        QString StuInfo=message.mid(4);      //去除前缀
+        emit ReceiveStuInfo(StuInfo);
+    }
+    if(message.startsWith("分数信息"))
+    {
+        QString temp="分数信息";
+        QString ScoreInfo=message.mid(temp.length());
+        emit ReturnScore(ScoreInfo);
+    }
+    if(message=="收到")
+    {
+        emit ReturnAnswer();
+    }
+    /*if(message.startsWith("借书回复"))
+    {
+        QString temp="借书回复";
+        QString ans=message.mid(temp.length());
+        emit SendBookAns(ans);
+    }*/
+    if(message.startsWith("书籍信息"))
+    {
+        QString temp="书籍信息";
+        QString Book_Info=message.mid(temp.length());
+        emit SendBookInfo(Book_Info);
+    }
 }
 
 void MyClient::onErrorOccurred(QAbstractSocket::SocketError error)   //异常处理
