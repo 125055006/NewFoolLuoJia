@@ -8,6 +8,8 @@
 #include"addscore.h"
 #include"getcomment.h"
 #include"onlinelib.h"
+#include"publishmovie.h"
+#include"answer_mth.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -33,6 +35,10 @@ private slots:
 
     void on_book_mng_clicked();
 
+    void on_Film_clicked();
+
+    void on_MTH_clicked();
+
 private:
     Ui::Widget *ui;
     MyServer *server;
@@ -41,5 +47,7 @@ private:
     AddScore *add_score;
     GetComment *get_com;
     OnlineLib *online_lib;
+    PublishMovie *Pbs_movie;
+    Answer_MTH *A_MTH;
 };
 #endif // WIDGET_H

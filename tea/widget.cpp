@@ -20,6 +20,8 @@ Widget::Widget(QWidget *parent)
     add_score=new AddScore(server);
     get_com=new GetComment(server);
     online_lib=new OnlineLib(server);
+    Pbs_movie=new PublishMovie(server);
+    A_MTH=new Answer_MTH(server);
 }
 
 Widget::~Widget()
@@ -54,5 +56,17 @@ void Widget::on_Look_com_clicked()
 void Widget::on_book_mng_clicked()
 {
     online_lib->show();
+}
+
+
+void Widget::on_Film_clicked()
+{
+    Pbs_movie->show();
+}
+
+
+void Widget::on_MTH_clicked()
+{
+    A_MTH->show();
 }
 

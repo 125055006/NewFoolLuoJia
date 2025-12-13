@@ -10,11 +10,14 @@ CONFIG += c++17 console
 
 SOURCES += \
     addbooks.cpp \
+    addbooks.cpp \
     addscore.cpp \
+    answer_mth.cpp \
     getcomment.cpp \
     main.cpp \
     myserver.cpp \
     onlinelib.cpp \
+    publishmovie.cpp \
     record.cpp \
     stucheck.cpp \
     widget.cpp
@@ -22,9 +25,11 @@ SOURCES += \
 HEADERS += \
     addbooks.h \
     addscore.h \
+    answer_mth.h \
     getcomment.h \
     myserver.h \
     onlinelib.h \
+    publishmovie.h \
     record.h \
     stucheck.h \
     widget.h
@@ -32,8 +37,10 @@ HEADERS += \
 FORMS += \
     addbooks.ui \
     addscore.ui \
+    answer_mth.ui \
     getcomment.ui \
     onlinelib.ui \
+    publishmovie.ui \
     record.ui \
     stucheck.ui \
     widget.ui

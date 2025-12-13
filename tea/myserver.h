@@ -24,6 +24,7 @@ signals:
    // void GetStuInfo(const QString &info);
     void SendCourses(const QString &course);
     void SendCom_Info(const QString &com_Info);
+    void SendMTH(const QString &MTH_Info);
     //void SendTargetBook(const QString &target);
 private:
     QTcpServer *server;
