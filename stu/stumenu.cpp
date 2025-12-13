@@ -12,6 +12,8 @@ StuMenu::StuMenu(MyClient *client,Student *student,QWidget *parent)
     con_sco=new ConsultScore(m_client);
     stu_com=new stu_comment(m_client);
     bor_book=new BorrowBook(m_client);
+    m_vie=new movie(m_client);
+    mt_heal=new MentalHeal(m_client);
     con_sco->setChooseCourse(cos_cos);
 }
 
@@ -50,5 +52,18 @@ void StuMenu::on_stu_com_clicked()
 void StuMenu::on_bor_book_clicked()
 {
     bor_book->show();
+}
+
+
+
+void StuMenu::on_movie_clicked()
+{
+    m_vie->show();
+}
+
+
+void StuMenu::on_MentalHeal_clicked()
+{
+    mt_heal->show();
 }
 

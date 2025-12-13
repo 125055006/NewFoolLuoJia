@@ -13,6 +13,8 @@ SOURCES += \
     choosecourse.cpp \
     consultscore.cpp \
     main.cpp \
+    mentalheal.cpp \
+    movie.cpp \
     myclient.cpp \
     resetps.cpp \
     stu_comment.cpp \
@@ -24,6 +26,8 @@ HEADERS += \
     borrowbook.h \
     choosecourse.h \
     consultscore.h \
+    mentalheal.h \
+    movie.h \
     myclient.h \
     resetps.h \
     stu_comment.h \
@@ -35,6 +39,8 @@ FORMS += \
     borrowbook.ui \
     choosecourse.ui \
     consultscore.ui \
+    mentalheal.ui \
+    movie.ui \
     resetps.ui \
     stu_comment.ui \
     student.ui \

@@ -8,6 +8,8 @@
 #include"consultscore.h"
 #include"borrowbook.h"
 #include"stu_comment.h"
+#include"movie.h"
+#include"mentalheal.h"
 namespace Ui {
 class StuMenu;
 }
@@ -31,6 +33,10 @@ private slots:
 
     void on_bor_book_clicked();
 
+    void on_movie_clicked();
+
+    void on_MentalHeal_clicked();
+
 private:
     Ui::StuMenu *ui;
     Student *stu;
@@ -39,6 +45,8 @@ private:
     stu_comment *stu_com;
     BorrowBook *bor_book;
     MyClient *m_client;
+    movie *m_vie;
+    MentalHeal *mt_heal;
 };
 
 #endif // STUMENU_H

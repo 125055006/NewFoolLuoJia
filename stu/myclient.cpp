@@ -62,6 +62,12 @@ void MyClient::onReadyRead()
         QString Book_Info=message.mid(temp.length());
         emit SendBookInfo(Book_Info);
     }
+    if(message.startsWith("电影信息"))
+    {
+        QString temp="电影信息";
+        QString Movie_Info=message.mid(temp.length());
+        emit SendMovieInfo(Movie_Info);
+    }
 }
 
 void MyClient::onErrorOccurred(QAbstractSocket::SocketError error)   //异常处理
