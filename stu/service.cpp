@@ -18,5 +18,6 @@ void service::on_facilityreservation_clicked()
     this->close();
     facilityreservation *fac=new facilityreservation;
     fac->show();
+
 }
 

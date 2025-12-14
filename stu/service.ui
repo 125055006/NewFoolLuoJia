@@ -26,45 +26,6 @@
     <string>场馆预约</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="campusinfo">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>80</y>
-     <width>56</width>
-     <height>18</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>校园资讯</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="phonebook">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>120</y>
-     <width>56</width>
-     <height>18</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>电话薄</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>160</y>
-     <width>56</width>
-     <height>18</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PushButton</string>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>
