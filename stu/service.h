@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+
 namespace Ui {
 class service;
 }
@@ -14,6 +15,9 @@ class service : public QWidget
 public:
     explicit service(QWidget *parent = nullptr);
     ~service();
+
+private slots:
+    void on_facilityreservation_clicked();
 
 private:
     Ui::service *ui;

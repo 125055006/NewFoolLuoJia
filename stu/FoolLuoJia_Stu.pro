@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -12,6 +12,7 @@ SOURCES += \
     borrowbook.cpp \
     choosecourse.cpp \
     consultscore.cpp \
+    facilityreservation.cpp \
     main.cpp \
     mentalheal.cpp \
     movie.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     borrowbook.h \
     choosecourse.h \
     consultscore.h \
+    facilityreservation.h \
     mentalheal.h \
     movie.h \
     myclient.h \
@@ -41,6 +43,7 @@ FORMS += \
     borrowbook.ui \
     choosecourse.ui \
     consultscore.ui \
+    facilityreservation.ui \
     mentalheal.ui \
     movie.ui \
     resetps.ui \
