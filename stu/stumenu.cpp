@@ -1,5 +1,6 @@
 #include "stumenu.h"
 #include "ui_stumenu.h"
+#include"service.h"
 
 StuMenu::StuMenu(MyClient *client,Student *student,QWidget *parent)
     : QWidget(parent)
@@ -32,25 +33,27 @@ void StuMenu::on_PersonCenter_clicked()
 
 
 void StuMenu::on_choose_course_clicked()
-{
+{   this->hide();
     cos_cos->show();
 }
 
 
 void StuMenu::on_Con_Sco_clicked()
-{
+{   this->hide();
     con_sco->show();
 }
 
 
 void StuMenu::on_stu_com_clicked()
 {
+    this->hide();
     stu_com->show();
 }
 
 
 void StuMenu::on_bor_book_clicked()
 {
+    this->hide();
     bor_book->show();
 }
 
@@ -58,12 +61,21 @@ void StuMenu::on_bor_book_clicked()
 
 void StuMenu::on_movie_clicked()
 {
+    this->hide();
     m_vie->show();
+}
+void StuMenu::on_MentalHeal_clicked()
+{
+    this->hide();
+    mt_heal->show();
 }
 
 
-void StuMenu::on_MentalHeal_clicked()
+
+void StuMenu::on_publicservicebutton_clicked()
 {
-    mt_heal->show();
+    this->hide();
+        service *ser=new service;
+    ser->show();
 }
 

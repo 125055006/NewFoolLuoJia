@@ -37,6 +37,8 @@ private slots:
 
     void on_MentalHeal_clicked();
 
+    void on_publicservicebutton_clicked();
+
 private:
     Ui::StuMenu *ui;
     Student *stu;

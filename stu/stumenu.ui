@@ -164,6 +164,19 @@
     <string>心理咨询</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="publicservicebutton">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>90</y>
+     <width>71</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>公共服务</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

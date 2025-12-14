@@ -17,6 +17,7 @@ SOURCES += \
     movie.cpp \
     myclient.cpp \
     resetps.cpp \
+    service.cpp \
     stu_comment.cpp \
     student.cpp \
     stumenu.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     movie.h \
     myclient.h \
     resetps.h \
+    service.h \
     stu_comment.h \
     student.h \
     stumenu.h \
@@ -42,6 +44,7 @@ FORMS += \
     mentalheal.ui \
     movie.ui \
     resetps.ui \
+    service.ui \
     stu_comment.ui \
     student.ui \
     stumenu.ui \

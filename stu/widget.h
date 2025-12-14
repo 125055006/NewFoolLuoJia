@@ -10,6 +10,7 @@
 #include"consultscore.h"
 #include"stu_comment.h"
 #include<QMessageBox>
+#include<service.h>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
