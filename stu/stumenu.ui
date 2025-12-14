@@ -142,8 +142,8 @@
   <widget class="QPushButton" name="MentalHeal">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>200</y>
+     <x>120</x>
+     <y>220</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -164,17 +164,29 @@
     <string>心理咨询</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="publicservicebutton">
+  <widget class="QPushButton" name="Bus">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>90</y>
-     <width>71</width>
-     <height>41</height>
+     <x>210</x>
+     <y>250</y>
+     <width>50</width>
+     <height>50</height>
     </rect>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
+   </property>
    <property name="text">
-    <string>公共服务</string>
+    <string>校园巴士</string>
    </property>
   </widget>
  </widget>

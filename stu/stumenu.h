@@ -10,6 +10,7 @@
 #include"stu_comment.h"
 #include"movie.h"
 #include"mentalheal.h"
+#include"bus.h"
 namespace Ui {
 class StuMenu;
 }
@@ -37,7 +38,7 @@ private slots:
 
     void on_MentalHeal_clicked();
 
-    void on_publicservicebutton_clicked();
+    void on_Bus_clicked();
 
 private:
     Ui::StuMenu *ui;
@@ -49,6 +50,7 @@ private:
     MyClient *m_client;
     movie *m_vie;
     MentalHeal *mt_heal;
+    Bus *ba_s;
 };
 
 #endif // STUMENU_H

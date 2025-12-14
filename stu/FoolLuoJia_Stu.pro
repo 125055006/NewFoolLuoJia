@@ -10,6 +10,7 @@ CONFIG += c++17 console
 
 SOURCES += \
     borrowbook.cpp \
+    bus.cpp \
     choosecourse.cpp \
     consultscore.cpp \
     main.cpp \
@@ -17,7 +18,6 @@ SOURCES += \
     movie.cpp \
     myclient.cpp \
     resetps.cpp \
-    service.cpp \
     stu_comment.cpp \
     student.cpp \
     stumenu.cpp \
@@ -25,13 +25,13 @@ SOURCES += \
 
 HEADERS += \
     borrowbook.h \
+    bus.h \
     choosecourse.h \
     consultscore.h \
     mentalheal.h \
     movie.h \
     myclient.h \
     resetps.h \
-    service.h \
     stu_comment.h \
     student.h \
     stumenu.h \
@@ -39,12 +39,12 @@ HEADERS += \
 
 FORMS += \
     borrowbook.ui \
+    bus.ui \
     choosecourse.ui \
     consultscore.ui \
     mentalheal.ui \
     movie.ui \
     resetps.ui \
-    service.ui \
     stu_comment.ui \
     student.ui \
     stumenu.ui \
@@ -54,3 +54,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    bus.qrc
