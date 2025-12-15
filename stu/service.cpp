@@ -3,6 +3,7 @@
 #include"facilityreservation.h"
 #include"facility.h"
 #include"campusinfowidget.h"
+#include"SchoolCalendarWidget.h"
 service::service(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::service)
@@ -37,5 +38,13 @@ void service::on_pushButton_clicked()
     this->hide();
     CampusInfoWidget *cam=new CampusInfoWidget;
     cam->show();
+}
+
+
+void service::on_pushButton_2_clicked()
+{
+    this->hide();
+    widgetCalendar*wid=new widgetCalendar;
+    wid->show();
 }
 
