@@ -11,6 +11,7 @@ CONFIG += c++17 console
 SOURCES += \
     borrowbook.cpp \
     bus.cpp \
+    campusinfowidget.cpp \
     choosecourse.cpp \
     consultscore.cpp \
     facility.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     borrowbook.h \
     bus.h \
+    campusinfowidget.h \
     choosecourse.h \
     consultscore.h \
     facility.h \
@@ -48,6 +50,7 @@ HEADERS += \
 FORMS += \
     borrowbook.ui \
     bus.ui \
+    campusinfowidget.ui \
     choosecourse.ui \
     consultscore.ui \
     facility.ui \
@@ -69,3 +72,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     bus.qrc
+
+SUBDIRS += \
+    ../../CampusInfoWidget/CampusInfoWidget.pro

@@ -18,8 +18,8 @@
     <rect>
      <x>40</x>
      <y>40</y>
-     <width>56</width>
-     <height>18</height>
+     <width>81</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -31,12 +31,25 @@
     <rect>
      <x>140</x>
      <y>40</y>
-     <width>56</width>
-     <height>18</height>
+     <width>81</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
     <string>电话薄</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>40</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>校园资讯与公告</string>
    </property>
   </widget>
  </widget>

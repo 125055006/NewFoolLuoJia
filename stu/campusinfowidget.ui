@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CampusInfoWidget</class>
+ <widget class="QWidget" name="CampusInfoWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>646</width>
+    <height>420</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>641</width>
+     <height>421</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tabCampusNews">
+    <attribute name="title">
+     <string>校园要闻</string>
+    </attribute>
+    <widget class="QLineEdit" name="leCampusNewsTitle">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入要闻标题</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="teCampusNewsContent">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>80</y>
+       <width>251</width>
+       <height>291</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>60</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入要闻内容</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnAddCampusNews">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>30</y>
+       <width>91</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>发布校园要闻</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lwCampusNewsList">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>30</y>
+       <width>311</width>
+       <height>341</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>10</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>展示已发布的校园要闻</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tabDeptNews">
+    <attribute name="title">
+     <string>院系动态</string>
+    </attribute>
+    <widget class="QComboBox" name="cbxDept">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>181</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>选择院系</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入院系动态标题</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>112</y>
+       <width>111</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入院系动态内容</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="leDeptNewsTitle">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>80</y>
+       <width>121</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="teDeptNewsContent">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>130</y>
+       <width>221</width>
+       <height>251</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnAddDeptNews">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>80</y>
+       <width>91</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>发布院系动态</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>10</y>
+       <width>161</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>展示已发布的院系动态</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lwDeptNewsList">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>30</y>
+       <width>351</width>
+       <height>351</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tabNotice">
+    <attribute name="title">
+     <string>通知公告</string>
+    </attribute>
+    <widget class="QRadioButton" name="rbtnImportant">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>重要事项</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbtnPolicy">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>30</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>政策变更</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnAddNotice">
+     <property name="geometry">
+      <rect>
+       <x>165</x>
+       <y>70</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>发布通知公告</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lwNoticeList">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>80</y>
+       <width>351</width>
+       <height>301</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>40</y>
+       <width>201</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>展示已发布的通知公告</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="leNoticeTitle">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>70</y>
+       <width>141</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="teNoticeContent">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>231</width>
+       <height>251</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入通知标题</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>100</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入通知内容</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tabLecture">
+    <attribute name="title">
+     <string>学术讲座</string>
+    </attribute>
+    <widget class="QLineEdit" name="leLectureTitle">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>161</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="leLectureSpeaker">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>40</y>
+       <width>141</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入讲座标题</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>20</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入讲座主讲人</string>
+     </property>
+    </widget>
+    <widget class="QTimeEdit" name="deLectureDate">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>40</y>
+       <width>118</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>20</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>选择讲座日期</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>161</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入讲座详情</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="teLectureContent">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>241</width>
+       <height>281</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnAddLecture">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>40</y>
+       <width>131</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>发布讲座信息</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnSignUpLecture">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>80</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>讲座报名</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblSignUpStatus">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>80</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>显示报名状态</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lwLectureList">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>130</y>
+       <width>341</width>
+       <height>241</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>110</y>
+       <width>211</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>展示已发布的讲座信息</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tabEmployment">
+    <attribute name="title">
+     <string>就业信息</string>
+    </attribute>
+    <widget class="QRadioButton" name="rbtnRecruitment">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>111</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>招聘会</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="rbtnInternship">
+     <property name="geometry">
+      <rect>
+       <x>151</x>
+       <y>30</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>实习机会</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="leEmploymentTitle">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>131</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="leEmploymentCompany">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>80</y>
+       <width>131</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入就业信息标题</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>60</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入企业名称</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnAddEmployment">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>360</y>
+       <width>151</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>发布就业信息</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="teEmploymentContent">
+     <property name="geometry">
+      <rect>
+       <x>13</x>
+       <y>125</y>
+       <width>271</width>
+       <height>221</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>输入就业信息详情</string>
+     </property>
+    </widget>
+    <widget class="QListWidget" name="lwEmploymentList">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>70</y>
+       <width>301</width>
+       <height>301</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>40</y>
+       <width>191</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>展示已发布的就业信息</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
