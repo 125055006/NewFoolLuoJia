@@ -163,7 +163,17 @@ void facilityreservation::initUI()
     btnLayout->setAlignment(Qt::AlignCenter);
     mainLayout->addWidget(formGroup);
     mainLayout->addLayout(btnLayout);
+    //新增按钮组
+    QPushButton *clearBtn = new QPushButton("清空所有记录", this);
+    clearBtn->setStyleSheet("background-color: #F56C6C; color: white; border: none; padding: 8px 20px; border-radius: 4px;");
+    connect(clearBtn, &QPushButton::clicked, this, &facilityreservation::onClearAllReservations);
 
+    btnLayout->addWidget(submitBtn);
+    btnLayout->addWidget(refreshBtn);
+    btnLayout->addWidget(clearBtn); // 添加到按钮布局
+    btnLayout->setAlignment(Qt::AlignCenter);
+    mainLayout->addLayout(btnLayout);
+//新增
     // ========== 预约记录表格 ==========
     QGroupBox *tableGroup = new QGroupBox("预约记录", this);
     QVBoxLayout *tableLayout = new QVBoxLayout(tableGroup);
@@ -322,4 +332,23 @@ void facilityreservation::onRefreshReservationList()
 {
     loadReservationRecords();
     QMessageBox::information(this, "刷新成功", "预约记录已更新！");
+}
+void facilityreservation::onClearAllReservations()
+{
+    // 二次确认，防止误删
+    int ret = QMessageBox::warning(this, "警告", "确定要清空所有预约记录吗？此操作不可恢复！",
+                                   QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    if (ret != QMessageBox::Yes) {
+        return; // 用户取消操作
+    }
+
+    QSqlQuery query;
+    // 执行删除语句，清空reservation表所有数据
+    QString deleteSql = "DELETE FROM reservation";
+    if (query.exec(deleteSql)) {
+        QMessageBox::information(this, "成功", "所有预约记录已清空！");
+        loadReservationRecords(); // 刷新表格，让界面同步更新
+    } else {
+        QMessageBox::critical(this, "错误", "清空失败：" + query.lastError().text());
+    }
 }

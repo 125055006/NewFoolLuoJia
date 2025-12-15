@@ -35,7 +35,8 @@ private slots:
     void onRefreshReservationList();
     // 切换场馆类型更新提示
     void onFacilityTypeChanged(int index);
-
+    // 新增清空记录的槽函数
+    void onClearAllReservations();
 private:
     Ui::facilityreservation *ui;
     // 初始化数据库（SQLite）
