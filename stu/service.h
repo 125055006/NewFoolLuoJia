@@ -18,6 +18,8 @@ public:
 private slots:
     void on_facilityreservation_clicked();
 
+    void on_telephone_clicked();
+
 private:
     Ui::service *ui;
 };

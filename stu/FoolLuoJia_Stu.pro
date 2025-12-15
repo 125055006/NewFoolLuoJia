@@ -19,6 +19,7 @@ SOURCES += \
     mentalheal.cpp \
     movie.cpp \
     myclient.cpp \
+    phonebooklogic.cpp \
     resetps.cpp \
     service.cpp \
     stu_comment.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     mentalheal.h \
     movie.h \
     myclient.h \
+    phonebooklogic.h \
     resetps.h \
     service.h \
     stu_comment.h \
@@ -52,6 +54,7 @@ FORMS += \
     facilityreservation.ui \
     mentalheal.ui \
     movie.ui \
+    phonebooklogic.ui \
     resetps.ui \
     service.ui \
     stu_comment.ui \

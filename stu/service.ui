@@ -26,6 +26,19 @@
     <string>场馆预约</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="telephone">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>40</y>
+     <width>56</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>电话薄</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
