@@ -18,7 +18,7 @@ service::~service()
 
 void service::on_facilityreservation_clicked()
 {
-    this->close();
+
     facilityreservation *fac=new facilityreservation;
     fac->show();
 
@@ -27,7 +27,7 @@ void service::on_facilityreservation_clicked()
 
 void service::on_telephone_clicked()
 {
-    this->hide();
+
     facility *fa=new facility;
     fa->show();
 }
@@ -35,7 +35,7 @@ void service::on_telephone_clicked()
 
 void service::on_pushButton_clicked()
 {
-    this->hide();
+
     CampusInfoWidget *cam=new CampusInfoWidget;
     cam->show();
 }
@@ -43,7 +43,6 @@ void service::on_pushButton_clicked()
 
 void service::on_pushButton_2_clicked()
 {
-    this->hide();
     widgetCalendar*wid=new widgetCalendar;
     wid->show();
 }
