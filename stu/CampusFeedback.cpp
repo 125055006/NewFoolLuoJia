@@ -150,7 +150,7 @@ bool CampusFeedback::deleteFeedback(const QString &itemText)
     if (itemParts.size() < 2)
         return false;
 
-    QString typeTitle = itemParts[0].mid(1, itemParts[0].length()-2); // 去掉[]
+    QString typeTitle = itemParts[0].mid(1, itemParts[0].length()-1); // 去掉[
     QString time = itemParts[1];
     QStringList typeTitleParts = typeTitle.split("] ");
     if (typeTitleParts.size() < 2)
