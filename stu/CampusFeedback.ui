@@ -75,7 +75,7 @@
   <widget class="QTextEdit" name="teContent">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>20</x>
      <y>140</y>
      <width>301</width>
      <height>81</height>
@@ -98,7 +98,7 @@
   <widget class="QPushButton" name="btnClear">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>230</x>
      <y>110</y>
      <width>111</width>
      <height>21</height>
@@ -129,6 +129,19 @@
    </property>
    <property name="text">
     <string>已提交反馈列表：</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnDelete">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>140</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>删除选中记录</string>
    </property>
   </widget>
  </widget>

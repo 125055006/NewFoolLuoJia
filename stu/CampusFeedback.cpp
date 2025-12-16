@@ -1,6 +1,6 @@
 #include "CampusFeedback.h"
 #include "ui_CampusFeedback.h"
-
+#include<QMenu>
 CampusFeedback::CampusFeedback(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::CampusFeedback)
@@ -14,6 +14,7 @@ CampusFeedback::CampusFeedback(QWidget *parent)
     // 加载本地已保存的反馈数据
     loadFeedbackData();
 
+
 }
 
 CampusFeedback::~CampusFeedback()
@@ -21,15 +22,13 @@ CampusFeedback::~CampusFeedback()
     delete ui;
 }
 
-// 提交反馈按钮点击事件
+// 提交反馈（原有逻辑不变）
 void CampusFeedback::on_btnAdd_clicked()
 {
-    // 1. 获取输入内容
     QString type = ui->cbxType->currentText();
     QString title = ui->leTitle->text().trimmed();
     QString content = ui->teContent->toPlainText().trimmed();
 
-    // 2. 输入验证
     if (title.isEmpty())
     {
         QMessageBox::warning(this, "输入错误", "反馈标题不能为空！");
@@ -43,16 +42,12 @@ void CampusFeedback::on_btnAdd_clicked()
         return;
     }
 
-    // 3. 保存反馈数据
     if (saveFeedback(type, title, content))
     {
-        // 4. 添加到列表显示
         QString feedbackItem = QString("[%1] %2 - %3").arg(type).arg(title).arg(QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm"));
         ui->lwFeedbackList->addItem(feedbackItem);
-
-        // 5. 提示成功并清空输入
         QMessageBox::information(this, "提交成功", "您的反馈已提交，感谢您的建议！");
-        on_btnClear_clicked(); // 复用清空函数
+        on_btnClear_clicked();
     }
     else
     {
@@ -60,21 +55,52 @@ void CampusFeedback::on_btnAdd_clicked()
     }
 }
 
-// 清空输入按钮点击事件
+// 清空输入（原有逻辑不变）
 void CampusFeedback::on_btnClear_clicked()
 {
     ui->leTitle->clear();
     ui->teContent->clear();
-    ui->cbxType->setCurrentIndex(0); // 重置为第一个选项
-    ui->leTitle->setFocus(); // 焦点回到标题输入框
+    ui->cbxType->setCurrentIndex(0);
+    ui->leTitle->setFocus();
 }
 
-// 加载本地反馈数据
+// 新增：删除选中反馈
+void CampusFeedback::on_btnDelete_clicked()
+{
+    // 1. 获取选中的列表项
+    QListWidgetItem *selectedItem = ui->lwFeedbackList->currentItem();
+    if (!selectedItem)
+    {
+        QMessageBox::warning(this, "删除失败", "请先选中要删除的反馈！");
+        return;
+    }
+
+    // 2. 确认删除
+    int ret = QMessageBox::question(this, "确认删除", "是否确定删除选中的反馈？删除后不可恢复！",
+                                    QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+    if (ret != QMessageBox::Yes)
+        return;
+
+    // 3. 删除列表项并同步删除文件中的记录
+    QString itemText = selectedItem->text();
+    if (deleteFeedback(itemText))
+    {
+        // 4. 从列表中移除项
+        delete selectedItem; // 释放内存
+        QMessageBox::information(this, "删除成功", "选中的反馈已删除！");
+    }
+    else
+    {
+        QMessageBox::critical(this, "删除失败", "文件操作失败，无法删除反馈记录！");
+    }
+}
+
+// 加载反馈数据（原有逻辑不变）
 void CampusFeedback::loadFeedbackData()
 {
     QFile file("feedback.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return; // 文件不存在则直接返回
+        return;
 
     QTextStream in(&file);
     while (!in.atEnd())
@@ -82,13 +108,22 @@ void CampusFeedback::loadFeedbackData()
         QString line = in.readLine().trimmed();
         if (!line.isEmpty())
         {
-            ui->lwFeedbackList->addItem(line);
+            // 解析文件行，生成列表项文本
+            QStringList parts = line.split("|");
+            if (parts.size() >= 4)
+            {
+                QString type = parts[1];
+                QString title = parts[2];
+                QString time = parts[0].left(16).replace("T", " "); // 适配时间格式
+                QString listItem = QString("[%1] %2 - %3").arg(type).arg(title).arg(time);
+                ui->lwFeedbackList->addItem(listItem);
+            }
         }
     }
     file.close();
 }
 
-// 保存新反馈到本地文件
+// 保存反馈（原有逻辑不变）
 bool CampusFeedback::saveFeedback(const QString &type, const QString &title, const QString &content)
 {
     QFile file("feedback.txt");
@@ -96,13 +131,80 @@ bool CampusFeedback::saveFeedback(const QString &type, const QString &title, con
         return false;
 
     QTextStream out(&file);
-    // 按行存储：时间|类型|标题|内容
     QString feedbackLine = QString("%1|%2|%3|%4\n")
                                .arg(QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss"))
                                .arg(type)
                                .arg(title)
                                .arg(content);
     out << feedbackLine;
+
+    file.close();
+    return true;
+}
+
+// 新增：删除指定反馈记录
+bool CampusFeedback::deleteFeedback(const QString &itemText)
+{
+    // 1. 解析列表项文本，提取关键信息（类型+标题+时间）
+    QStringList itemParts = itemText.split(" - ");
+    if (itemParts.size() < 2)
+        return false;
+
+    QString typeTitle = itemParts[0].mid(1, itemParts[0].length()-2); // 去掉[]
+    QString time = itemParts[1];
+    QStringList typeTitleParts = typeTitle.split("] ");
+    if (typeTitleParts.size() < 2)
+        return false;
+
+    QString type = typeTitleParts[0];
+    QString title = typeTitleParts[1];
+
+    // 2. 读取文件所有行，过滤掉要删除的记录
+    QFile file("feedback.txt");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return false;
+
+    QList<QString> keepLines;
+    QTextStream in(&file);
+    while (!in.atEnd())
+    {
+        QString line = in.readLine().trimmed();
+        if (line.isEmpty())
+            continue;
+
+        QStringList lineParts = line.split("|");
+        // 匹配时间（前16位）、类型、标题
+        if (lineParts.size() >= 4)
+        {
+            QString lineTime = lineParts[0].left(16).replace("T", " ");
+            QString lineType = lineParts[1];
+            QString lineTitle = lineParts[2];
+
+            // 不匹配则保留该行
+            if (!(lineTime == time && lineType == type && lineTitle == title))
+            {
+                keepLines.append(line);
+            }
+        }
+    }
+    file.close();
+
+    // 3. 重新写入过滤后的内容
+    return rewriteFeedbackFile(keepLines);
+}
+
+// 新增：重新写入文件
+bool CampusFeedback::rewriteFeedbackFile(const QList<QString> &keepLines)
+{
+    QFile file("feedback.txt");
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+        return false;
+
+    QTextStream out(&file);
+    for (const QString &line : keepLines)
+    {
+        out << line << "\n";
+    }
 
     file.close();
     return true;
