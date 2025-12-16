@@ -4,6 +4,7 @@
 #include"facility.h"
 #include"campusinfowidget.h"
 #include"SchoolCalendarWidget.h"
+#include"CampusFeedback.h"
 service::service(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::service)
@@ -45,5 +46,11 @@ void service::on_pushButton_2_clicked()
 {
     widgetCalendar*wid=new widgetCalendar;
     wid->show();
+}
+
+void service::on_pushButton_3_clicked()
+{
+    CampusFeedback *fed=new CampusFeedback;
+    fed->show();
 }
 

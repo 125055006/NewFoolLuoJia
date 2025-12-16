@@ -9,6 +9,7 @@ CONFIG += c++17 console
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    CampusFeedback.cpp \
     SchoolCalendarWidget.cpp \
     borrowbook.cpp \
     bus.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    CampusFeedback.h \
     SchoolCalendarWidget.h \
     borrowbook.h \
     bus.h \
@@ -50,6 +52,7 @@ HEADERS += \
     widget.h
 
 FORMS += \
+    CampusFeedback.ui \
     SchoolCalendarWidget.ui \
     borrowbook.ui \
     bus.ui \
