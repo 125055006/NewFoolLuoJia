@@ -202,6 +202,19 @@
     <string>公共服务</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="MessageCenter">
+   <property name="geometry">
+    <rect>
+     <x>115</x>
+     <y>280</y>
+     <width>61</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>消息中心</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

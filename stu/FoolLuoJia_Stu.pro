@@ -20,6 +20,7 @@ SOURCES += \
     facilityreservation.cpp \
     main.cpp \
     mentalheal.cpp \
+    messagecenter.cpp \
     movie.cpp \
     myclient.cpp \
     phonebooklogic.cpp \
@@ -41,6 +42,7 @@ HEADERS += \
     facility.h \
     facilityreservation.h \
     mentalheal.h \
+    messagecenter.h \
     movie.h \
     myclient.h \
     phonebooklogic.h \
@@ -62,6 +64,7 @@ FORMS += \
     facility.ui \
     facilityreservation.ui \
     mentalheal.ui \
+    messagecenter.ui \
     movie.ui \
     phonebooklogic.ui \
     resetps.ui \
