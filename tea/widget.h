@@ -10,6 +10,8 @@
 #include"onlinelib.h"
 #include"teaclub.h"
 #include"campuslife.h"
+#include"publishmovie.h"
+#include"answer_mth.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -38,6 +40,9 @@ private slots:
     void on_clubButton_clicked();
 
     void on_campusButton_clicked();
+    void on_Film_clicked();
+
+    void on_MTH_clicked();
 
 private:
     Ui::Widget *ui;
@@ -50,5 +55,7 @@ private:
     TeaClub *tea_club;
     CampusLife *campus;
 
+    PublishMovie *Pbs_movie;
+    Answer_MTH *A_MTH;
 };
 #endif // WIDGET_H

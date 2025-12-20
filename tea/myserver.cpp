@@ -52,6 +52,13 @@ void MyServer::onClientReadyRead()
         qDebug()<<"已收到教评信息";
         emit SendCom_Info(com_Info);
     }
+    if(message.startsWith("心预信息"))
+    {
+        QString temp="心预信息";
+        QString MTH_Info=message.mid(temp.length());
+        qDebug()<<"收到心理咨询预约信息";
+        emit SendMTH(MTH_Info);
+    }
     /*if(message.startsWith("借书目标"))
     {
         QString temp="借书目标";

@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network sql widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,9 +18,22 @@ SOURCES += \
     consultscore.cpp \
     dormexchange.cpp \
     dormfix.cpp \
+    CampusFeedback.cpp \
+    SchoolCalendarWidget.cpp \
+    borrowbook.cpp \
+    bus.cpp \
+    campusinfowidget.cpp \
+    choosecourse.cpp \
+    consultscore.cpp \
+    facility.cpp \
+    facilityreservation.cpp \
     main.cpp \
+    mentalheal.cpp \
+    movie.cpp \
     myclient.cpp \
+    phonebooklogic.cpp \
     resetps.cpp \
+    service.cpp \
     stu_comment.cpp \
     stuacti.cpp \
     stuactijoin.cpp \
@@ -41,8 +54,21 @@ HEADERS += \
     consultscore.h \
     dormexchange.h \
     dormfix.h \
+    CampusFeedback.h \
+    SchoolCalendarWidget.h \
+    borrowbook.h \
+    bus.h \
+    campusinfowidget.h \
+    choosecourse.h \
+    consultscore.h \
+    facility.h \
+    facilityreservation.h \
+    mentalheal.h \
+    movie.h \
     myclient.h \
+    phonebooklogic.h \
     resetps.h \
+    service.h \
     stu_comment.h \
     stuacti.h \
     stuactijoin.h \
@@ -63,7 +89,20 @@ FORMS += \
     consultscore.ui \
     dormexchange.ui \
     dormfix.ui \
+    CampusFeedback.ui \
+    SchoolCalendarWidget.ui \
+    borrowbook.ui \
+    bus.ui \
+    campusinfowidget.ui \
+    choosecourse.ui \
+    consultscore.ui \
+    facility.ui \
+    facilityreservation.ui \
+    mentalheal.ui \
+    movie.ui \
+    phonebooklogic.ui \
     resetps.ui \
+    service.ui \
     stu_comment.ui \
     stuacti.ui \
     stuactijoin.ui \
@@ -78,3 +117,9 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    bus.qrc
+
+SUBDIRS += \
+    ../../CampusInfoWidget/CampusInfoWidget.pro

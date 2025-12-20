@@ -10,6 +10,8 @@
 #include"consultscore.h"
 #include"stu_comment.h"
 #include<QMessageBox>
+#include "service.h"
+#include<facilityreservation.h>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;

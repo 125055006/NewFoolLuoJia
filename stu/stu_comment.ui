@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>445</width>
-    <height>327</height>
+    <width>478</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,9 +30,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
-     <width>421</width>
-     <height>201</height>
+     <y>100</y>
+     <width>451</width>
+     <height>241</height>
     </rect>
    </property>
   </widget>
@@ -40,7 +40,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>40</y>
+     <y>60</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -49,14 +49,40 @@
   <widget class="QPushButton" name="confirm">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>300</y>
+     <x>390</x>
+     <y>350</y>
      <width>80</width>
      <height>18</height>
     </rect>
    </property>
    <property name="text">
     <string>确认</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>40</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>评价对象</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>40</width>
+     <height>12</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>内容</string>
    </property>
   </widget>
  </widget>

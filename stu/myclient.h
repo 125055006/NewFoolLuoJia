@@ -29,6 +29,7 @@ signals:
     void getFixTime(const QString &fixTime_Info);
     void getFeeInfo(const QString &Info);
     void getReInfo();
+    void SendMovieInfo(const QString &Movie_Info);
     //void SendBookAns(const QString &ans);
 private:
     QTcpSocket *socket;

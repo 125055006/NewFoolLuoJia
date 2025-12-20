@@ -63,17 +63,6 @@ void ConsultScore::ShowScore(const QString &score)
     QStringList part=score.split('/');
     for(int i=0;i<part.size();i++)
     {
-        /*QString EditName="score"+QString::number(i+1);
-        QLineEdit *edit=this->findChild<QLineEdit*>(EditName);     //动态命名窗口
-
-        if(edit)
-        {
-            edit->setText(part[i]);
-        }
-        else
-        {
-            QMessageBox::warning(this,"错误","未获取到分数信息");
-        }*/
         switch(i+1)
         {
         case 1:
@@ -89,6 +78,7 @@ void ConsultScore::ShowScore(const QString &score)
             ui->score4->setText(part[3]);
             break;
         }
+
     }
 }
 void ConsultScore::on_Return_clicked()

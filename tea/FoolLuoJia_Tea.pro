@@ -10,14 +10,17 @@ CONFIG += c++17 console
 
 SOURCES += \
     addbooks.cpp \
+    addbooks.cpp \
     addscore.cpp \
     campuslife.cpp \
     dormdistribute.cpp \
     dormtofix.cpp \
+    answer_mth.cpp \
     getcomment.cpp \
     main.cpp \
     myserver.cpp \
     onlinelib.cpp \
+    publishmovie.cpp \
     record.cpp \
     stucheck.cpp \
     teabank.cpp \
@@ -33,9 +36,11 @@ HEADERS += \
     campuslife.h \
     dormdistribute.h \
     dormtofix.h \
+    answer_mth.h \
     getcomment.h \
     myserver.h \
     onlinelib.h \
+    publishmovie.h \
     record.h \
     stucheck.h \
     teabank.h \
@@ -51,8 +56,10 @@ FORMS += \
     campuslife.ui \
     dormdistribute.ui \
     dormtofix.ui \
+    answer_mth.ui \
     getcomment.ui \
     onlinelib.ui \
+    publishmovie.ui \
     record.ui \
     stucheck.ui \
     teabank.ui \

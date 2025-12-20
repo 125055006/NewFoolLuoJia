@@ -1,6 +1,6 @@
 #include "stumenu.h"
 #include "ui_stumenu.h"
-
+#include"service.h"
 StuMenu::StuMenu(MyClient *client,Student *student,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::StuMenu)
@@ -17,6 +17,10 @@ StuMenu::StuMenu(MyClient *client,Student *student,QWidget *parent)
     con_sco->setChooseCourse(cos_cos);
 
     connect(campus, &CampusLife::campusHadExit, this, &StuMenu::show);
+    m_vie=new movie(m_client);
+    mt_heal=new MentalHeal(m_client);
+    con_sco->setChooseCourse(cos_cos);
+    ba_s=new Bus(client);
 }
 
 StuMenu::~StuMenu()
@@ -67,5 +71,30 @@ void StuMenu::on_campusButton_clicked()
 {
     campus->show();
     this->hide();
+
+void StuMenu::on_movie_clicked()
+{
+    m_vie->show();
+}
+
+
+void StuMenu::on_MentalHeal_clicked()
+{
+    mt_heal->show();
+}
+
+
+void StuMenu::on_Bus_clicked()
+{
+    ba_s->show();
+}
+
+
+void StuMenu::on_publicservice_clicked()
+{
+    this->close();
+    service *ser=new service;
+    ser->show();
+
 }
 

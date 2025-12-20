@@ -26,36 +26,99 @@
     <string>个人中心</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="choose_course">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>50</x>
      <y>80</y>
-     <width>50</width>
-     <height>50</height>
+     <width>214</width>
+     <height>52</height>
     </rect>
    </property>
-   <property name="minimumSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>50</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="text">
-    <string>选课</string>
-   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="choose_course">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>选课</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="bor_book">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>预约借书</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Con_Sco">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>成绩查询</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="stu_com">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>50</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>学生教评</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QPushButton" name="Con_Sco">
+  <widget class="QPushButton" name="movie">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>100</y>
+     <x>50</x>
+     <y>220</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -73,14 +136,14 @@
     </size>
    </property>
    <property name="text">
-    <string>成绩查询</string>
+    <string>操场电影</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="stu_com">
+  <widget class="QPushButton" name="MentalHeal">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>170</y>
+     <x>120</x>
+     <y>220</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -98,14 +161,14 @@
     </size>
    </property>
    <property name="text">
-    <string>学生教评</string>
+    <string>心理咨询</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="bor_book">
+  <widget class="QPushButton" name="Bus">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>210</y>
+     <x>210</x>
+     <y>250</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -123,7 +186,20 @@
     </size>
    </property>
    <property name="text">
-    <string>预约借书</string>
+    <string>校园巴士</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="publicservice">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>90</y>
+     <width>71</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>公共服务</string>
    </property>
   </widget>
   <widget class="QPushButton" name="stu_actiButton">
