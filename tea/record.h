@@ -25,6 +25,7 @@ private slots:
 
 signals:
     void sendStuInfo(const QString &info);
+    void sendToDorm(const QString &name); //向宿舍管理界面发送学生的姓名
 private:
     bool isRepeated;
     Ui::Record *ui;

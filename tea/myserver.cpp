@@ -59,6 +59,27 @@ void MyServer::onClientReadyRead()
         qDebug()<<"收到借书目标"<<target;
         emit SendTargetBook(target);
     }*/
+    if (message.startsWith("成功参加")) {
+        emit stuReadyJoin();
+    }
+    if (message.startsWith("更换申请")) {
+        QString temp = "更换申请";
+        QString exchange_Info = message.mid(temp.length());
+        qDebug() << "收到更换寝室申请";
+        emit reciveExchange(exchange_Info);
+    }
+    if (message.startsWith("报修申请")) {
+        QString temp = "报修申请";
+        QString fix_Info = message.mid(temp.length());
+        qDebug() << "收到寝室报修申请";
+        emit reciveFix(fix_Info);
+    }
+    if (message.startsWith("全部缴纳")) {
+        emit getLearn_Residence();
+    }
+    if (message.startsWith("水电网费已交")) {
+        emit getLifeFee();
+    }
 }
 
 void MyServer::onClientDisconnected()

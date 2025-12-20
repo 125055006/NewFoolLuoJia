@@ -23,6 +23,12 @@ signals:
     void ReturnScore(const QString &score);
     void ReturnAnswer();
     void SendBookInfo(const QString &Book_Info);
+    void SendClubInfo(const QString &Club_Info);
+    void SendJoinInfo(const QString &join_Info);
+    void sendDistriInfo(const QString &distri_Info);
+    void getFixTime(const QString &fixTime_Info);
+    void getFeeInfo(const QString &Info);
+    void getReInfo();
     //void SendBookAns(const QString &ans);
 private:
     QTcpSocket *socket;

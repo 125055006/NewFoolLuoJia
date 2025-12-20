@@ -57,6 +57,7 @@ void Record::on_Save_clicked()
         server->sendToAllClients("学生信息"+info);
         qDebug()<<"信息已发送";
         emit sendStuInfo(info);
+        emit sendToDorm(name);
     }
 }
 

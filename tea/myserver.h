@@ -24,7 +24,13 @@ signals:
    // void GetStuInfo(const QString &info);
     void SendCourses(const QString &course);
     void SendCom_Info(const QString &com_Info);
+    void stuReadyJoin();
     //void SendTargetBook(const QString &target);
+    void reciveExchange(const QString &Info);
+    void reciveFix(const QString &Info);
+    //两缴费完成的信号
+    void getLearn_Residence();
+    void getLifeFee();
 private:
     QTcpServer *server;
     QList<QTcpSocket*> clients;

@@ -8,6 +8,8 @@
 #include"addscore.h"
 #include"getcomment.h"
 #include"onlinelib.h"
+#include"teaclub.h"
+#include"campuslife.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -33,6 +35,10 @@ private slots:
 
     void on_book_mng_clicked();
 
+    void on_clubButton_clicked();
+
+    void on_campusButton_clicked();
+
 private:
     Ui::Widget *ui;
     MyServer *server;
@@ -41,5 +47,8 @@ private:
     AddScore *add_score;
     GetComment *get_com;
     OnlineLib *online_lib;
+    TeaClub *tea_club;
+    CampusLife *campus;
+
 };
 #endif // WIDGET_H

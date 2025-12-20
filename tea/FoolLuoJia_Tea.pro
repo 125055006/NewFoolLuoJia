@@ -11,31 +11,55 @@ CONFIG += c++17 console
 SOURCES += \
     addbooks.cpp \
     addscore.cpp \
+    campuslife.cpp \
+    dormdistribute.cpp \
+    dormtofix.cpp \
     getcomment.cpp \
     main.cpp \
     myserver.cpp \
     onlinelib.cpp \
     record.cpp \
     stucheck.cpp \
+    teabank.cpp \
+    teaclub.cpp \
+    teaclubcomi.cpp \
+    teaclubpub.cpp \
+    teadorm.cpp \
     widget.cpp
 
 HEADERS += \
     addbooks.h \
     addscore.h \
+    campuslife.h \
+    dormdistribute.h \
+    dormtofix.h \
     getcomment.h \
     myserver.h \
     onlinelib.h \
     record.h \
     stucheck.h \
+    teabank.h \
+    teaclub.h \
+    teaclubcomi.h \
+    teaclubpub.h \
+    teadorm.h \
     widget.h
 
 FORMS += \
     addbooks.ui \
     addscore.ui \
+    campuslife.ui \
+    dormdistribute.ui \
+    dormtofix.ui \
     getcomment.ui \
     onlinelib.ui \
     record.ui \
     stucheck.ui \
+    teabank.ui \
+    teaclub.ui \
+    teaclubcomi.ui \
+    teaclubpub.ui \
+    teadorm.ui \
     widget.ui
 
 # Default rules for deployment.

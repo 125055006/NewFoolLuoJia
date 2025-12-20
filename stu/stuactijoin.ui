@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StuActiJoin</class>
+ <widget class="QWidget" name="StuActiJoin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>460</width>
+    <height>303</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>40</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;活动列表&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exitButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>40</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>返回</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>80</y>
+     <width>361</width>
+     <height>194</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="actLabel1">
+        <property name="text">
+         <string>活动1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="actLabel2">
+        <property name="text">
+         <string>活动2</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="actLabel3">
+        <property name="text">
+         <string>活动3</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="actLabel4">
+        <property name="text">
+         <string>活动4</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="actLineEdit1">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="actLineEdit2">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="actLineEdit3">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="actLineEdit4">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QPushButton" name="joinButton1">
+        <property name="text">
+         <string>参加</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="joinButton2">
+        <property name="text">
+         <string>参加</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="joinButton3">
+        <property name="text">
+         <string>参加</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="joinButton4">
+        <property name="text">
+         <string>参加</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

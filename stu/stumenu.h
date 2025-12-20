@@ -8,6 +8,8 @@
 #include"consultscore.h"
 #include"borrowbook.h"
 #include"stu_comment.h"
+#include"stuacti.h"
+#include"campuslife.h"
 namespace Ui {
 class StuMenu;
 }
@@ -31,6 +33,12 @@ private slots:
 
     void on_bor_book_clicked();
 
+
+
+    void on_stu_actiButton_clicked();
+
+    void on_campusButton_clicked();
+
 private:
     Ui::StuMenu *ui;
     Student *stu;
@@ -39,6 +47,8 @@ private:
     stu_comment *stu_com;
     BorrowBook *bor_book;
     MyClient *m_client;
+    StuActi *s_acti;
+    CampusLife *campus;
 };
 
 #endif // STUMENU_H

@@ -40,13 +40,13 @@ void MyClient::onReadyRead()
         QString StuInfo=message.mid(4);      //去除前缀
         emit ReceiveStuInfo(StuInfo);
     }
-    if(message.startsWith("分数信息"))
+    else if(message.startsWith("分数信息"))
     {
         QString temp="分数信息";
         QString ScoreInfo=message.mid(temp.length());
         emit ReturnScore(ScoreInfo);
     }
-    if(message=="收到")
+    else if(message=="收到")
     {
         emit ReturnAnswer();
     }
@@ -56,12 +56,43 @@ void MyClient::onReadyRead()
         QString ans=message.mid(temp.length());
         emit SendBookAns(ans);
     }*/
-    if(message.startsWith("书籍信息"))
+    else if(message.startsWith("书籍信息"))
     {
         QString temp="书籍信息";
         QString Book_Info=message.mid(temp.length());
         emit SendBookInfo(Book_Info);
     }
+    else if(message.startsWith("社团活动记录"))
+    {
+        QString temp = "社团活动记录";
+        QString Club_Info = message.mid(temp.length());
+        emit SendClubInfo(Club_Info);
+    }
+    else if(message.startsWith("社团活动"))
+    {
+        QString temp = "社团活动";
+        QString join_Info = message.mid(temp.length());
+        emit SendJoinInfo(join_Info);
+    }
+    else if(message.startsWith("宿舍分配")) {
+        QString temp = "宿舍分配";
+        QString distri_Info = message.mid(temp.length());
+        emit sendDistriInfo(distri_Info);
+    }
+    else if(message.startsWith("报修时间")) {
+        QString temp = "报修时间";
+        QString fixTime_Info = message.mid(temp.length());
+        emit getFixTime(fixTime_Info);
+    }
+    else if(message.startsWith("学宿费发布")) {
+        QString temp = "学宿费发布";
+        QString fee_Info = message.mid(temp.length());
+        emit getFeeInfo(fee_Info);
+    }
+    else if(message.startsWith("水电重置")) {
+        emit getReInfo();
+    }
+
 }
 
 void MyClient::onErrorOccurred(QAbstractSocket::SocketError error)   //异常处理
