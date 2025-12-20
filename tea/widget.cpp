@@ -75,7 +75,9 @@ void Widget::on_campusButton_clicked()
 {
     campus->show();
     this->hide();
-void Widget::on_Film_clicked()
+}
+
+    void Widget::on_Film_clicked()
 {
     Pbs_movie->show();
 }

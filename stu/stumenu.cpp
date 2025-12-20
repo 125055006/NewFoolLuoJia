@@ -71,6 +71,7 @@ void StuMenu::on_campusButton_clicked()
 {
     campus->show();
     this->hide();
+}
 
 void StuMenu::on_movie_clicked()
 {
