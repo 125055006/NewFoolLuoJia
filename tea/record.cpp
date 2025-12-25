@@ -89,31 +89,6 @@ void Record::on_Save_clicked()
             return;
         }
     }
-    idHouse.append(id);
-    QLineEdit *nameEdit=ui->nameEdit;
-    QString name=nameEdit->text();
-    QLineEdit *sexEdit=ui->sexEdit;
-    QString sex=sexEdit->text();
-    QLineEdit *ageEdit=ui->ageEdit;
-    QString age=ageEdit->text();
-    QLineEdit *majorEdit=ui->majorEdit;
-    QString major=majorEdit->text();
-    QLineEdit *classEdit=ui->classEdit;
-    QString Class=classEdit->text();
-    QLineEdit *phoneEdit=ui->phoneEdit;
-    QString phone=phoneEdit->text();
-    QLineEdit *addressEdit=ui->addressEdit;
-    QString address=addressEdit->text();    //发送信息
-    QString info=QString("%1/%2/%3/%4/%5/%6/%7/%8")
-                       .arg(id).arg(name).arg(sex).arg(age)
-                       .arg(major).arg(Class).arg(phone).arg(address);
-    QStringList part=info.split('/');
-    if(!isRepeated)
-    {
-        server->sendToAllClients("学生信息"+info);
-        qDebug()<<"信息已发送";
-        emit sendStuInfo(info);
-        emit sendToDorm(name);
 
     //最后保存到本地文件（重复则修改，不重复则添加）
     bool saveSuccess = StudentManager::instance().addOrUpdateStudent(info);

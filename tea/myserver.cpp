@@ -70,13 +70,13 @@ void MyServer::onClientReadyRead()
         qDebug()<<"收到心理咨询预约信息";
         emit SendMTH(MTH_Info);
     }
-    else if(message.startsWith("学生信息:"))
-    {
-        QString temp="借书目标";
-        QString target=message.mid(temp.length());
-        qDebug()<<"收到借书目标"<<target;
-        emit SendTargetBook(target);
-    }*/
+    // else if(message.startsWith("学生信息:"))
+    // {
+    //     QString temp="借书目标";
+    //     QString target=message.mid(temp.length());
+    //     qDebug()<<"收到借书目标"<<target;
+    //     emit SendTargetBook(target);
+    // }
     if (message.startsWith("成功参加")) {
         emit stuReadyJoin();
     }
