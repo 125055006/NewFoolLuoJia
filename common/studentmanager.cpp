@@ -4,6 +4,8 @@
 #include <QDebug>
 #include <QDir>
 #include <QCoreApplication>
+#include <QStandardPaths>
+
 QString StudentInfo::toString() const
 {
     return QString("%1/%2/%3/%4/%5/%6/%7/%8")
@@ -38,18 +40,45 @@ StudentInfo StudentInfo::fromString(const QString &str)
 
 StudentManager::StudentManager()
 {
-    // 获取应用程序目录
-    QString appDir = QCoreApplication::applicationDirPath();
+    // 获取应用程序的绝对路径
+    QString appPath = QCoreApplication::applicationFilePath();
+    qDebug() << "应用程序路径：" << appPath;
 
-    // 确保 data 目录存在
-    QDir dir(appDir);
-    if (!dir.exists("data")) {
-        dir.mkdir("data");
+    // 分析路径，找到项目根目录
+    QFileInfo appInfo(appPath);
+    QDir currentDir = appInfo.dir();  // 当前执行目录
+
+    // 向上查找，直到找到 NewFoolLuoJia 目录
+    QString projectRoot;
+    while (!currentDir.isRoot()) {
+        QString dirName = currentDir.dirName();
+
+        if (dirName == "NewFoolLuoJia") {
+            projectRoot = currentDir.path();
+            break;
+        }
+
+        if (!currentDir.cdUp()) {
+            break;
+        }
     }
 
-    dataFile = appDir + "/data/students.dat";
+    if (projectRoot.isEmpty()) {
+        // 没找到，使用备用方案
+        projectRoot = QCoreApplication::applicationDirPath();
+        qDebug() << "警告：未找到项目根目录，使用应用程序目录";
+    }
 
-    qDebug() << "学生数据文件路径：" << dataFile;
+    // 创建 config 目录
+    QString configDir = QDir(projectRoot).filePath("config");
+    QDir configDirObj(configDir);
+    if (!configDirObj.exists()) {
+        configDirObj.mkpath(".");
+        qDebug() << "创建配置目录：" << configDir;
+    }
+
+    dataFile = configDirObj.filePath("students.dat");
+    qDebug() << "数据文件路径：" << dataFile;
 
     loadFromFile(dataFile);
 }
@@ -60,10 +89,24 @@ StudentManager& StudentManager::instance()
     return instance;
 }
 
-void StudentManager::addOrUpdateStudent(const StudentInfo &info)
+bool StudentManager::addOrUpdateStudent(const StudentInfo &info)
 {
+    if(info.id.isEmpty() || info.name.isEmpty()) {
+        qDebug() << "学生信息不完整，无法保存";
+        return false;
+    }
+
+    qDebug() << "保存学生信息：" << info.id << info.name;
     students[info.id] = info;
-    saveToFile(dataFile);
+    bool success = saveToFile(dataFile);
+
+    if(success) {
+        qDebug() << "学生信息已保存到：" << dataFile;
+    } else {
+        qDebug() << "保存学生信息失败";
+    }
+
+    return success;
 }
 
 StudentInfo StudentManager::getStudentById(const QString &id) const

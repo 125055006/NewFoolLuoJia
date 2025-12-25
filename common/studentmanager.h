@@ -29,7 +29,7 @@ public:
     static StudentManager& instance();
 
     // 添加/更新学生信息
-    void addOrUpdateStudent(const StudentInfo &info);
+    bool addOrUpdateStudent(const StudentInfo &info);
 
     // 根据学号获取学生信息
     StudentInfo getStudentById(const QString &id) const;

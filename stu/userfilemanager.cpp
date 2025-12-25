@@ -7,15 +7,46 @@
 
 UserFileManager::UserFileManager()
 {
-    // 确保数据目录存在
-    QDir dir(QCoreApplication::applicationDirPath());
-    if (!dir.exists("data")) {
-        dir.mkdir("data");
-    }
-    m_filename = QCoreApplication::applicationDirPath() + "/data/users.txt";
+    // 获取应用程序的绝对路径
+    QString appPath = QCoreApplication::applicationFilePath();
+    qDebug() << "应用程序路径：" << appPath;
 
-    // 存储文件的位置
-    // 自动加载用户数据
+    // 分析路径，找到项目根目录
+    QFileInfo appInfo(appPath);
+    QDir currentDir = appInfo.dir();  // 当前执行目录
+
+    // 向上查找，直到找到 NewFoolLuoJia 目录
+    QString projectRoot;
+    while (!currentDir.isRoot()) {
+        QString dirName = currentDir.dirName();
+
+        if (dirName == "NewFoolLuoJia") {
+            projectRoot = currentDir.path();
+            break;
+        }
+
+        if (!currentDir.cdUp()) {
+            break;
+        }
+    }
+
+    if (projectRoot.isEmpty()) {
+        // 没找到，使用备用方案
+        projectRoot = QCoreApplication::applicationDirPath();
+        qDebug() << "警告：未找到项目根目录，使用应用程序目录";
+    }
+
+    // 创建 config 目录
+    QString configDir = QDir(projectRoot).filePath("config");
+    QDir configDirObj(configDir);
+    if (!configDirObj.exists()) {
+        configDirObj.mkpath(".");
+        qDebug() << "创建配置目录：" << configDir;
+    }
+
+    m_filename = configDirObj.filePath("users.txt");
+    qDebug() << "数据文件路径：" << m_filename;
+
     loadAllUsers();
 }
 

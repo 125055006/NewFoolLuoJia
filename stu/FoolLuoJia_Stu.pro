@@ -8,6 +8,8 @@ CONFIG += c++17 console
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH += ../common
+
 SOURCES += \
     CampusFeedback.cpp \
     SchoolCalendarWidget.cpp \
@@ -30,7 +32,7 @@ SOURCES += \
     stu_comment.cpp \
     student.cpp \
     studentinfoedit.cpp \
-    studentmanager.cpp \
+    ../common/studentmanager.cpp\
     stumenu.cpp \
     userfilemanager.cpp \
     widget.cpp
@@ -56,7 +58,7 @@ HEADERS += \
     stu_comment.h \
     student.h \
     studentinfoedit.h \
-    studentmanager.h \
+    ../common/studentmanager.h\
     stumenu.h \
     userfilemanager.h \
     widget.h

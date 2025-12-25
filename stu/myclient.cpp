@@ -72,5 +72,6 @@ void MyClient::onReadyRead()
 
 void MyClient::onErrorOccurred(QAbstractSocket::SocketError error)   //异常处理
 {
+    Q_UNUSED(error);  // 明确告诉编译器这个参数是故意不使用的
     qDebug() << "连接错误:" << socket->errorString();
 }

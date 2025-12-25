@@ -119,43 +119,106 @@ void Student::loadStudentInfoFromLocal()
 void Student::onReceiveStuInfo(const QString &info)
 {
     qDebug()<<"收到信息："<<info;
-    QStringList part=info.split('/');
+
+    if(!info.startsWith("学生信息:")) {
+        qDebug() << "不是学生信息，忽略：" << info;
+        return;
+    }
+
+    QString actualInfo = info.mid(5);//删去前面的“学生信息：”
+
+    QStringList part=actualInfo.split('/');
+
+    if(part.size() >= 8) {
+        QString studentId = part[0];
+
+        if(currentStudentId.isEmpty() || currentStudentId == studentId)
+        {
+            ui->ID->setText(part[0]);
+
+            ui->NAME->setText(part[1]);
+
+            ui->GENDER->setText(part[2]);
+
+            ui->AGE->setText(part[3]);
+
+            ui->MAJORS->setText(part[4]);
+
+            ui->CLASS->setText(part[5]);
+
+            ui->PHONENUM->setText(part[6]);
+
+            ui->ADDRESS->setText(part[7]);
+
+            StudentInfo studentInfo;
+
+            studentInfo.id = part[0];
+
+            studentInfo.name = part[1];
+
+            studentInfo.gender = part[2];
+
+            studentInfo.age = part[3];
+
+            studentInfo.major = part[4];
+
+            studentInfo.className = part[5];
+
+            studentInfo.phone = part[6];
+
+            studentInfo.address = part[7];
+
+            bool saveSuccess = StudentManager::instance().addOrUpdateStudent(studentInfo);
+
+            if(saveSuccess)
+            {
+                qDebug() << "学生信息已保存到本地：" << studentId;
+
+                // 如果当前窗口显示的就是这个学生，更新窗口标题
+                if(currentStudentId == studentId)
+                {
+                    setWindowTitle("个人中心 - " + studentId);
+                }
+            }
+            else
+            {
+                qDebug() << "保存学生信息失败：" << studentId;
+            }
+        }
+        else
+        {
+            qDebug() << "收到其他学生信息，当前学生：" << currentStudentId
+                     << "，收到：" << studentId;
+
+            StudentInfo studentInfo;
+
+            studentInfo.id = part[0];
+
+            studentInfo.name = part[1];
+
+            studentInfo.gender = part[2];
+
+            studentInfo.age = part[3];
+
+            studentInfo.major = part[4];
+
+            studentInfo.className = part[5];
+
+            studentInfo.phone = part[6];
+
+            studentInfo.address = part[7];
+
+            StudentManager::instance().addOrUpdateStudent(studentInfo);
+
+            qDebug() << "已保存其他学生信息到本地：" << studentId;
+
+        }
+
+    }
+    else
     {
-        ui->ID->setText(part[0]);
-
-        ui->NAME->setText(part[1]);
-
-        ui->GENDER->setText(part[2]);
-
-        ui->AGE->setText(part[3]);
-
-        ui->MAJORS->setText(part[4]);
-
-        ui->CLASS->setText(part[5]);
-
-        ui->PHONENUM->setText(part[6]);
-
-        ui->ADDRESS->setText(part[7]);
-
-        // 同时保存到本地文件
-        StudentInfo studentInfo;
-        studentInfo.id = part[0];
-
-        studentInfo.name = part[1];
-
-        studentInfo.gender = part[2];
-
-        studentInfo.age = part[3];
-
-        studentInfo.major = part[4];
-
-        studentInfo.className = part[5];
-
-        studentInfo.phone = part[6];
-
-        studentInfo.address = part[7];
-
-        StudentManager::instance().addOrUpdateStudent(studentInfo);
+        qDebug() << "学生信息格式错误，字段数量不足：" << part.size();
+        qDebug() << "实际内容：" << actualInfo;
     }
 }
 
