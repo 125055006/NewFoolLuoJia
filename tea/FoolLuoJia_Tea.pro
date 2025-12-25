@@ -28,7 +28,6 @@ SOURCES += \
     teaclubcomi.cpp \
     teaclubpub.cpp \
     teadorm.cpp \
-    widget.cpp
     widget.cpp\
     ../common/studentmanager.cpp
 
@@ -50,7 +49,6 @@ HEADERS += \
     teaclubcomi.h \
     teaclubpub.h \
     teadorm.h \
-    widget.h
     widget.h\
     ../common/studentmanager.h
 
