@@ -11,9 +11,9 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>重置密码</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -65,6 +65,9 @@
       </item>
       <item>
        <widget class="QLineEdit" name="RePSedit">
+        <property name="echoMode">
+         <enum>QLineEdit::EchoMode::Password</enum>
+        </property>
         <property name="placeholderText">
          <string>请输入新密码</string>
         </property>
@@ -96,6 +99,9 @@
       </item>
       <item>
        <widget class="QLineEdit" name="Reconfirm">
+        <property name="echoMode">
+         <enum>QLineEdit::EchoMode::Password</enum>
+        </property>
         <property name="placeholderText">
          <string>请再次输入新密码</string>
         </property>
@@ -105,13 +111,13 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
      <y>270</y>
      <width>308</width>
-     <height>22</height>
+     <height>30</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_4">

@@ -35,10 +35,24 @@ void MyClient::onReadyRead()
     QByteArray data = socket->readAll();
     QString message = QString::fromUtf8(data);
     qDebug() << "收到消息:" << message;
+
     if(message.startsWith("学生信息"))       //通过前缀检查信息类型
     {
-        QString StuInfo=message.mid(4);      //去除前缀
-        emit ReceiveStuInfo(StuInfo);
+        int colonIndex = message.indexOf(":");
+        if (colonIndex == -1) {
+            colonIndex = message.indexOf("："); // 中文冒号
+        }
+
+        if (colonIndex != -1) {
+            QString StuInfo = message.mid(colonIndex + 1); // 跳过冒号
+            qDebug() << "提取的学生信息：" << StuInfo;
+            emit ReceiveStuInfo("学生信息:" + StuInfo);  // 重新加上前缀保持一致性
+        } else {
+            // 如果没有冒号，可能是旧格式
+            QString StuInfo = message.mid(4);  // 去除前缀
+            qDebug() << "旧格式学生信息：" << StuInfo;
+            emit ReceiveStuInfo("学生信息:" + StuInfo);
+        }
     }
     else if(message.startsWith("分数信息"))
     {
@@ -103,5 +117,30 @@ void MyClient::onReadyRead()
 
 void MyClient::onErrorOccurred(QAbstractSocket::SocketError error)   //异常处理
 {
+    Q_UNUSED(error);  // 明确告诉编译器这个参数是故意不使用的
     qDebug() << "连接错误:" << socket->errorString();
+}
+
+void MyClient::requestStudentInfo(const QString &studentId)
+{
+
+    qDebug() << "=== 客户端：开始请求学生信息 ===";
+    qDebug() << "学号：" << studentId;
+    qDebug() << "Socket 状态：" << socket->state();
+    qDebug() << "是否连接：" << (socket->state() == QAbstractSocket::ConnectedState);
+
+    if (!socket || socket->state() != QAbstractSocket::ConnectedState) {
+        qDebug() << "客户端未连接，无法请求学生信息";
+        return;
+    }
+
+    // 构造请求消息，格式为：REQUEST_STUDENT_INFO:学号
+    QString message = "REQUEST_STUDENT_INFO:" + studentId;
+    qDebug() << "发送的消息：" << message;
+
+    // 发送请求到服务器
+    socket->write(message.toUtf8());
+    socket->flush();
+
+    qDebug() << "已向服务器发送学生信息请求：" << studentId;
 }

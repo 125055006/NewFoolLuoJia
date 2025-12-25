@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>公交系统</string>
   </property>
   <widget class="QLabel" name="img">
    <property name="geometry">
@@ -42,13 +42,13 @@
     <string>返回</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>50</x>
      <y>60</y>
      <width>451</width>
-     <height>20</height>
+     <height>30</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">

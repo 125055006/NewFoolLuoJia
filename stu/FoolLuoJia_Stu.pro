@@ -8,6 +8,8 @@ CONFIG += c++17 console
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDEPATH += ../common
+
 SOURCES += \
     bankexpense.cpp \
     bankkr.cpp \
@@ -29,9 +31,11 @@ SOURCES += \
     facilityreservation.cpp \
     main.cpp \
     mentalheal.cpp \
+    messagecenter.cpp \
     movie.cpp \
     myclient.cpp \
     phonebooklogic.cpp \
+    register.cpp \
     resetps.cpp \
     service.cpp \
     stu_comment.cpp \
@@ -41,7 +45,10 @@ SOURCES += \
     stubank.cpp \
     student.cpp \
     studorm.cpp \
+    studentinfoedit.cpp \
+    ../common/studentmanager.cpp\
     stumenu.cpp \
+    userfilemanager.cpp \
     widget.cpp
 
 HEADERS += \
@@ -64,9 +71,11 @@ HEADERS += \
     facility.h \
     facilityreservation.h \
     mentalheal.h \
+    messagecenter.h \
     movie.h \
     myclient.h \
     phonebooklogic.h \
+    register.h \
     resetps.h \
     service.h \
     stu_comment.h \
@@ -76,7 +85,10 @@ HEADERS += \
     stubank.h \
     student.h \
     studorm.h \
+    studentinfoedit.h \
+    ../common/studentmanager.h\
     stumenu.h \
+    userfilemanager.h \
     widget.h
 
 FORMS += \
@@ -99,8 +111,10 @@ FORMS += \
     facility.ui \
     facilityreservation.ui \
     mentalheal.ui \
+    messagecenter.ui \
     movie.ui \
     phonebooklogic.ui \
+    register.ui \
     resetps.ui \
     service.ui \
     stu_comment.ui \
@@ -110,6 +124,7 @@ FORMS += \
     stubank.ui \
     student.ui \
     studorm.ui \
+    studentinfoedit.ui \
     stumenu.ui \
     widget.ui
 

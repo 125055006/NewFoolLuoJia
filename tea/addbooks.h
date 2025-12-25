@@ -7,12 +7,20 @@
 
 struct book
 {
+
     QString name;
+
     QString introduce;
+
     bool isBorrowed;
+
 };
-namespace Ui {
+
+namespace Ui
+{
+
 class AddBooks;
+
 }
 
 class AddBooks : public QWidget
@@ -23,8 +31,10 @@ public:
     QList<book> books;
     explicit AddBooks(MyServer *server,QWidget *parent = nullptr);
     ~AddBooks();
+
 signals:
     void SendToLib(QList<book> &books);
+
 private slots:
     void on_Return_clicked();
 

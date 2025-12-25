@@ -6,6 +6,7 @@ StuMenu::StuMenu(MyClient *client,Student *student,QWidget *parent)
     , ui(new Ui::StuMenu)
     ,stu(student)
     ,m_client(client)
+    ,msgCenter(nullptr)
 {
     ui->setupUi(this);
     cos_cos=new ChooseCourse(m_client);
@@ -21,10 +22,19 @@ StuMenu::StuMenu(MyClient *client,Student *student,QWidget *parent)
     mt_heal=new MentalHeal(m_client);
     con_sco->setChooseCourse(cos_cos);
     ba_s=new Bus(client);
+    msgCenter = new MessageCenter();
 }
 
 StuMenu::~StuMenu()
 {
+    delete cos_cos;
+    delete con_sco;
+    delete stu_com;
+    delete bor_book;
+    delete m_vie;
+    delete mt_heal;
+    delete ba_s;
+    delete msgCenter;
     delete ui;
 }
 
@@ -92,10 +102,20 @@ void StuMenu::on_Bus_clicked()
 
 
 void StuMenu::on_publicservice_clicked()
+
 {
-    this->close();
     service *ser=new service;
     ser->show();
 
+}
+
+
+void StuMenu::on_MessageCenter_clicked()
+{
+    if (msgCenter) {
+        msgCenter->show();
+        msgCenter->raise();           // 将窗口提到最前面
+        msgCenter->activateWindow();  // 激活窗口
+    }
 }
 

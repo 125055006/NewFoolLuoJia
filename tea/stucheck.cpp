@@ -5,6 +5,7 @@ StuCheck::StuCheck(Record *re_cord,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::StuCheck)
     ,re_cord(re_cord)
+    , studentManager(StudentManager::instance())
 {
     ui->setupUi(this);
     connect(re_cord,&Record::sendStuInfo,this,&StuCheck::SaveInfo);
@@ -19,6 +20,7 @@ StuCheck::~StuCheck()
 void StuCheck::on_Return_clicked()
 {
     this->close();
+
     ui->nameLable->clear();
     ui->sexLable->clear();
     ui->ageLable->clear();
@@ -33,46 +35,77 @@ void StuCheck::on_Return_clicked()
 void StuCheck::SaveInfo(const QString &info)
 {
     qDebug()<<"收到信息"<<info;
-    students.append(info);
-    qDebug()<<info<<"已录入"<<"目前共有"<<students.size()<<"条学生信息";
+
+    StudentInfo student = StudentInfo::fromString(info);
+    if (!student.id.isEmpty()) {
+        studentManager.addOrUpdateStudent(student);
+        qDebug() << "学生信息已保存到文件，学号：" << student.id;
+    }
 }
 
 void StuCheck::on_Check_clicked()
 {
-    object=0;
-    Found=false;
-    if(students.size()==0)
-    {
-        QMessageBox::warning(this,"提示","目前未记录学生");
-    }
-    QString target=ui->le_id_check->text();
-    for(int i=0;i<students.size();i++)
-    {
-        QStringList part=students[i].split('/');
-        if(part[0]==target)
-        {
-            Found=true;
-            ui->nameLable->setText("姓名："+part[1]);
-            ui->sexLable->setText("性别："+part[2]);
-            ui->ageLable->setText("年龄："+part[3]);
-            ui->majorLable->setText("专业："+part[4]);
-            ui->classLable->setText("班级："+part[5]);
-            ui->phoneLable->setText("联系方式："+part[6]);
-            ui->addressLable->setText("家庭地址："+part[7]);
-            object=i;
-            ui->remove->show();
-        }
-        if(i==students.size()-1&&!Found)
-        {
-            QMessageBox::warning(this,"提示","未找到该学生");
-        }
-    }
-}
+    // 获取输入的学号
+    QString targetId = ui->le_id_check->text().trimmed();
 
+    if (targetId.isEmpty()) {
+        QMessageBox::warning(this, "提示", "请输入学号");
+        return;
+    }
+
+    // 从 StudentManager 查询学生信息
+    StudentInfo student = studentManager.getStudentById(targetId);
+
+    if (student.id.isEmpty()) {
+        QMessageBox::warning(this, "提示", "未找到该学生");
+        // 清空显示
+        ui->nameLable->clear();
+        ui->sexLable->clear();
+        ui->ageLable->clear();
+        ui->majorLable->clear();
+        ui->classLable->clear();
+        ui->phoneLable->clear();
+        ui->addressLable->clear();
+        ui->remove->hide();
+        return;
+    }
+
+    // 显示学生信息
+    ui->nameLable->setText("姓名：" + student.name);
+    ui->sexLable->setText("性别：" + student.gender);
+    ui->ageLable->setText("年龄：" + student.age);
+    ui->majorLable->setText("专业：" + student.major);
+    ui->classLable->setText("班级：" + student.className);
+    ui->phoneLable->setText("联系方式：" + student.phone);
+    ui->addressLable->setText("家庭地址：" + student.address);
+
+    // 显示删除按钮
+    ui->remove->show();
+}
 
 void StuCheck::on_remove_clicked()
 {
-    students.remove(object);
-    QMessageBox::warning(this,"提示","删除成功");
+    QString targetId = ui->le_id_check->text().trimmed();
+
+    if (targetId.isEmpty()) {
+        QMessageBox::warning(this, "提示", "没有要删除的学生");
+        return;
+    }
+
+    // 从 StudentManager 删除学生
+    studentManager.removeStudent(targetId);
+
+    // 清空显示
+    ui->nameLable->clear();
+    ui->sexLable->clear();
+    ui->ageLable->clear();
+    ui->majorLable->clear();
+    ui->classLable->clear();
+    ui->phoneLable->clear();
+    ui->addressLable->clear();
+    ui->le_id_check->clear();
+    ui->remove->hide();
+
+    QMessageBox::information(this, "提示", "删除成功");
 }
 
