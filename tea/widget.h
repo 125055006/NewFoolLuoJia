@@ -8,6 +8,8 @@
 #include"addscore.h"
 #include"getcomment.h"
 #include"onlinelib.h"
+#include"teaclub.h"
+#include"campuslife.h"
 #include"publishmovie.h"
 #include"answer_mth.h"
 QT_BEGIN_NAMESPACE
@@ -35,6 +37,9 @@ private slots:
 
     void on_book_mng_clicked();
 
+    void on_clubButton_clicked();
+
+    void on_campusButton_clicked();
     void on_Film_clicked();
 
     void on_MTH_clicked();
@@ -47,6 +52,9 @@ private:
     AddScore *add_score;
     GetComment *get_com;
     OnlineLib *online_lib;
+    TeaClub *tea_club;
+    CampusLife *campus;
+
     PublishMovie *Pbs_movie;
     Answer_MTH *A_MTH;
 };

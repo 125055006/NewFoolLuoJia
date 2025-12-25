@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TeaClubPub</class>
+ <widget class="QWidget" name="TeaClubPub">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="mainLabel">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>30</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;活动发布&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exitButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>80</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>返回</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>100</y>
+     <width>301</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="pubLabel1">
+        <property name="text">
+         <string>活动1：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pubLabel2">
+        <property name="text">
+         <string>活动2</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pubLabel3">
+        <property name="text">
+         <string>活动3</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="pubLabel4">
+        <property name="text">
+         <string>活动4</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLineEdit" name="pubLineEdit1"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="pubLineEdit2"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="pubLineEdit3"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="pubLineEdit4"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QPushButton" name="pubButton1">
+        <property name="text">
+         <string>发布</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pubButton2">
+        <property name="text">
+         <string>发布</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pubButton3">
+        <property name="text">
+         <string>发布</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pubButton4">
+        <property name="text">
+         <string>发布</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

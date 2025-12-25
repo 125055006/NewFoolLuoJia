@@ -20,6 +20,12 @@ Widget::Widget(QWidget *parent)
     add_score=new AddScore(server);
     get_com=new GetComment(server);
     online_lib=new OnlineLib(server);
+    tea_club = new TeaClub(server);
+    campus = new CampusLife(server);
+
+    connect(campus, &CampusLife::campusHadExit, this, &Widget::show);
+    //这个connect连接record和dorm 为了读取学生的名字
+    connect(re_cord, &Record::sendToDorm, campus, &CampusLife::sendToDorm);
     Pbs_movie=new PublishMovie(server);
     A_MTH=new Answer_MTH(server);
 }
@@ -59,7 +65,19 @@ void Widget::on_book_mng_clicked()
 }
 
 
-void Widget::on_Film_clicked()
+void Widget::on_clubButton_clicked()
+{
+    tea_club->show();
+}
+
+
+void Widget::on_campusButton_clicked()
+{
+    campus->show();
+    this->hide();
+}
+
+    void Widget::on_Film_clicked()
 {
     Pbs_movie->show();
 }

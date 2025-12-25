@@ -8,6 +8,8 @@
 #include"consultscore.h"
 #include"borrowbook.h"
 #include"stu_comment.h"
+#include"stuacti.h"
+#include"campuslife.h"
 #include"movie.h"
 #include"mentalheal.h"
 #include"bus.h"
@@ -35,6 +37,11 @@ private slots:
 
     void on_bor_book_clicked();
 
+
+
+    void on_stu_actiButton_clicked();
+
+    void on_campusButton_clicked();
     void on_movie_clicked();
 
     void on_MentalHeal_clicked();
@@ -53,6 +60,8 @@ private:
     stu_comment *stu_com;
     BorrowBook *bor_book;
     MyClient *m_client;
+    StuActi *s_acti;
+    CampusLife *campus;
     movie *m_vie;
     MentalHeal *mt_heal;
     Bus *ba_s;
