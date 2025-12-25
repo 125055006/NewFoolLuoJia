@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>473</width>
-    <height>374</height>
+    <width>690</width>
+    <height>570</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>20</y>
+     <y>10</y>
      <width>80</width>
-     <height>18</height>
+     <height>40</height>
     </rect>
    </property>
    <property name="text">
@@ -29,10 +29,10 @@
   <widget class="QLineEdit" name="nameEdit">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>321</width>
-     <height>31</height>
+     <x>110</x>
+     <y>120</y>
+     <width>241</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="placeholderText">
@@ -42,20 +42,20 @@
   <widget class="QTextEdit" name="introduce">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>140</y>
-     <width>391</width>
-     <height>231</height>
+     <x>30</x>
+     <y>230</y>
+     <width>611</width>
+     <height>251</height>
     </rect>
    </property>
   </widget>
   <widget class="QPushButton" name="add">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>340</y>
-     <width>61</width>
-     <height>31</height>
+     <x>570</x>
+     <y>500</y>
+     <width>80</width>
+     <height>40</height>
     </rect>
    </property>
    <property name="text">
@@ -65,11 +65,18 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>110</y>
-     <width>51</width>
-     <height>31</height>
+     <x>40</x>
+     <y>180</y>
+     <width>101</width>
+     <height>40</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft Tai Le</family>
+     <pointsize>36</pointsize>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;简介：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -78,14 +85,21 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>41</width>
-     <height>16</height>
+     <x>40</x>
+     <y>120</y>
+     <width>81</width>
+     <height>40</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Microsoft YaHei</family>
+     <pointsize>36</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;书名：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;书名：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>

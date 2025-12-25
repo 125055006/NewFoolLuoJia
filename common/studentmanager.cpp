@@ -77,7 +77,7 @@ StudentManager::StudentManager()
         qDebug() << "创建配置目录：" << configDir;
     }
 
-    dataFile = configDirObj.filePath("students.dat");
+    dataFile = configDirObj.filePath("studentsinfo.dat");
     qDebug() << "数据文件路径：" << dataFile;
 
     loadFromFile(dataFile);

@@ -41,10 +41,10 @@ public:
     QList<StudentInfo> getAllStudents() const;
 
     // 从文件加载
-    bool loadFromFile(const QString &filename = "students.dat");
+    bool loadFromFile(const QString &filename = "studentsinfo.dat");
 
     // 保存到文件
-    bool saveToFile(const QString &filename = "students.dat") const;
+    bool saveToFile(const QString &filename = "studentsinfo.dat") const;
 
     // 检查学号是否存在
     bool exists(const QString &id) const;
