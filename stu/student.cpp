@@ -3,11 +3,15 @@
 #include "studentinfoedit.h"  // 添加头文件
 #include "studentmanager.h"     // 添加头文件
 #include <QDebug>
+#include <QMenu>      // 添加：用于右键菜单
+#include <QAction>
+#include <QFile>
 
 Student::Student(MyClient *client,QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Student)
     ,m_client(client)
+    , refreshAction(nullptr)
 {
     ui->setupUi(this);
 
@@ -46,15 +50,43 @@ Student::Student(MyClient *client,QWidget *parent)
     ui->ADDRESS->setStyleSheet(readOnlyStyle);
     //改变字体样式
 
+    this->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    createContextMenu();
+
     if(m_client)     //连接信号到槽函数
     {
         connect(m_client,&MyClient::ReceiveStuInfo,this,&Student::onReceiveStuInfo);
     }
+
+    connect(ui->RefreshBtn, &QPushButton::clicked, this, &Student::on_RefreshBtn_clicked);
 }
 
 Student::~Student()
 {
     delete ui;
+    if (refreshAction) delete refreshAction;
+}
+
+void Student::createContextMenu()
+{
+    // 创建刷新动作
+    refreshAction = new QAction("刷新学生信息", this);
+    refreshAction->setShortcut(QKeySequence("F5"));  // 设置快捷键F5
+    refreshAction->setIcon(QIcon::fromTheme("view-refresh"));
+
+    // 连接动作信号
+    connect(refreshAction, &QAction::triggered, this, &Student::onRefreshAction);
+
+    // 设置窗口的右键菜单策略
+    this->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    // 连接自定义上下文菜单请求信号
+    connect(this, &Student::customContextMenuRequested, this, [this](const QPoint &pos){
+        QMenu menu(this);
+        menu.addAction(refreshAction);
+        menu.exec(this->mapToGlobal(pos));
+    });
 }
 
 void Student::setStudentId(const QString &id)
@@ -77,6 +109,12 @@ void Student::on_Return_clicked()
 void Student::loadStudentInfoFromLocal()
 {
     if (currentStudentId.isEmpty()) return;
+
+    QString dataFile = "config/studentsinfo.dat";
+    qDebug() << "加载文件：" << dataFile;
+    qDebug() << "文件是否存在：" << QFile::exists(dataFile);
+
+    StudentManager::instance().loadFromFile();
 
     StudentInfo info = StudentManager::instance().getStudentById(currentStudentId);
 
@@ -249,3 +287,61 @@ void Student::on_EditStudent_clicked()
     editWindow->setAttribute(Qt::WA_DeleteOnClose);
 }
 
+
+void Student::on_RefreshBtn_clicked()
+{
+    refreshStudentInfo();
+}
+
+void Student::onRefreshAction()
+{
+    refreshStudentInfo();
+}
+
+void Student::refreshStudentInfo()
+{
+    if (currentStudentId.isEmpty()) {
+        QMessageBox::warning(this, "警告", "请先设置学号！");
+        return;
+    }
+
+    qDebug() << "正在刷新学生信息，学号：" << currentStudentId;
+
+    // 先尝试从本地加载
+
+    ui->NAME->clear();
+    ui->GENDER->clear();
+    ui->AGE->clear();
+    ui->MAJORS->clear();
+    ui->CLASS->clear();
+    ui->PHONENUM->clear();
+    ui->ADDRESS->clear();
+
+    QApplication::processEvents();
+
+    loadStudentInfoFromLocal();
+
+    // 如果已连接服务器，发送请求获取最新信息
+    if (m_client) {
+        // 发送请求到服务器获取最新信息
+        m_client->requestStudentInfo(currentStudentId);
+        qDebug() << "已向服务器发送学生信息请求：" << currentStudentId;
+
+       QMessageBox::information(this, "提示", "已向服务器请求最新信息，请稍候...");
+    } else {
+        qDebug() << "客户端未连接，仅从本地加载信息";
+        QMessageBox::information(this, "提示",
+                                 "学生信息已刷新（仅本地数据）！\n未连接服务器，无法获取最新信息。");
+        return;
+    }
+
+    // 注意：这里不显示成功提示，因为需要等待服务器响应
+    // 服务器响应后会触发 onReceiveStuInfo 槽函数自动更新界面
+}
+
+void Student::contextMenuEvent(QContextMenuEvent *event)
+{
+    QMenu menu(this);
+    menu.addAction(refreshAction);
+    menu.exec(event->globalPos());
+}

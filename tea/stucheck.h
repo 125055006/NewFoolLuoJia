@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include"record.h"
+#include "studentmanager.h"
 #include<QList>
 namespace Ui {
 class StuCheck;
@@ -28,6 +29,7 @@ private:
     bool Found;
     Ui::StuCheck *ui;
     Record *re_cord;
+    StudentManager& studentManager;
 };
 
 #endif // STUCHECK_H

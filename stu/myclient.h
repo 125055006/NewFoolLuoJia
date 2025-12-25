@@ -13,6 +13,7 @@ public:
     explicit MyClient(QObject *parent = nullptr);
     void connectToServer(const QString &host, quint16 port);
     void sendMessage(const QString &message);
+    void requestStudentInfo(const QString &studentId);
 
 private slots:
     void onConnected();
