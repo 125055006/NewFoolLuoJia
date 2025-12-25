@@ -24,11 +24,15 @@ SOURCES += \
     movie.cpp \
     myclient.cpp \
     phonebooklogic.cpp \
+    register.cpp \
     resetps.cpp \
     service.cpp \
     stu_comment.cpp \
     student.cpp \
+    studentinfoedit.cpp \
+    studentmanager.cpp \
     stumenu.cpp \
+    userfilemanager.cpp \
     widget.cpp
 
 HEADERS += \
@@ -46,11 +50,15 @@ HEADERS += \
     movie.h \
     myclient.h \
     phonebooklogic.h \
+    register.h \
     resetps.h \
     service.h \
     stu_comment.h \
     student.h \
+    studentinfoedit.h \
+    studentmanager.h \
     stumenu.h \
+    userfilemanager.h \
     widget.h
 
 FORMS += \
@@ -67,10 +75,12 @@ FORMS += \
     messagecenter.ui \
     movie.ui \
     phonebooklogic.ui \
+    register.ui \
     resetps.ui \
     service.ui \
     stu_comment.ui \
     student.ui \
+    studentinfoedit.ui \
     stumenu.ui \
     widget.ui
 

@@ -2,16 +2,31 @@
 #define WIDGET_H
 
 #include <QWidget>
+
 #include"myclient.h"
+
 #include"stumenu.h"
+
 #include"student.h"
+
 #include"resetps.h"
+
 #include"choosecourse.h"
+
 #include"consultscore.h"
+
 #include"stu_comment.h"
+
 #include<QMessageBox>
+
 #include "service.h"
+
 #include<facilityreservation.h>
+
+#include "userfilemanager.h"
+
+#include"register.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -27,21 +42,32 @@ public:
     ~Widget();
 
 private slots:
+
     void on_login_clicked();
 
     void on_ResetPS_clicked();
 
-    void NewIdAndPs(const QString &new_id,const QString &new_ps);
+    void on_CreatUsers_clicked();
+
 private:
-    QString Cur_id;
-    QString Cur_Ps;
+
     Ui::Widget *ui;
+
     MyClient *client;
+
     StuMenu *stu_menu;
+
     Student *stu_ui;
+
     ResetPS *set_ps;
+
     ChooseCourse *cos_client;
+
     ConsultScore *con_sco;
+
     stu_comment *stu_com;
+
+    Register *Register_New;
+
 };
 #endif // WIDGET_H

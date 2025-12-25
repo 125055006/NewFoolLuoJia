@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include<QMessageBox>
+#include "userfilemanager.h"
+
 namespace Ui {
 class ResetPS;
 }
@@ -16,13 +18,19 @@ public:
     ~ResetPS();
 
 private slots:
+
     void on_Return_clicked();
+
     void on_Confirm_clicked();
 
 signals:
-    void SendNewIdAndPs(const QString &new_id,const QString &new_Ps);
+
+    void passwordResetSuccess();
+
 private:
+
     Ui::ResetPS *ui;
+
 };
 
 #endif // RESETPS_H

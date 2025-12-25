@@ -86,8 +86,8 @@ void StuMenu::on_Bus_clicked()
 
 
 void StuMenu::on_publicservice_clicked()
+
 {
-    this->close();
     service *ser=new service;
     ser->show();
 
