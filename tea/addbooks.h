@@ -4,6 +4,7 @@
 #include <QWidget>
 #include<QMessageBox>
 #include<myserver.h>
+#include<QFile>
 
 struct book
 {
@@ -30,6 +31,8 @@ class AddBooks : public QWidget
 public:
     QList<book> books;
     explicit AddBooks(MyServer *server,QWidget *parent = nullptr);
+    void loadBooks();      //从文件中拿书籍信息
+    void saveBooks();      //保存书籍信息到文件中
     ~AddBooks();
 
 signals:
