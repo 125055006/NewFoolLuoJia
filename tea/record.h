@@ -26,6 +26,7 @@ private slots:
 
 signals:
     void sendStuInfo(const QString &info);
+    void sendToDorm(const QString &name);
 
 private:
     void setupConnections();

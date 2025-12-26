@@ -112,6 +112,7 @@ void Record::on_Save_clicked()
     }
 
     emit sendStuInfo(infoStr);
+    emit sendToDorm(name);
 
     clearAllInputs();
 
