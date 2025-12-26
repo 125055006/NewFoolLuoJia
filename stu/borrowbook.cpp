@@ -6,14 +6,45 @@ BorrowBook::BorrowBook(MyClient *client,QWidget *parent)
     ,m_client(client)
 {
     ui->setupUi(this);
-    books={{"三国演义","三大家族的恩怨情仇",false},{"红楼梦","回家探亲，不小心攻略了表哥",false},{"水浒传","105个男人和3个女人",false},{"西游记","总有反派想抢我师傅",false}};
+    loadBooks();
     connect(m_client,&MyClient::SendBookInfo,this,&BorrowBook::UpdataBooks);
-    //connect(m_client,&MyClient::SendBookAns,this,&BorrowBook::Result);
 }
 
 BorrowBook::~BorrowBook()
 {
     delete ui;
+}
+
+void BorrowBook::loadBooks()
+{
+    QString path="F:\\Qt\\NewFoolLuoJia1\\tea\\books.txt";
+    QFile file(path);
+    if(!file.exists())
+    {
+        QMessageBox::warning(this,"错误","找不到书籍数据"+file.errorString());
+        return;
+    }
+    if(!file.open(QIODevice::ReadOnly|QIODevice::WriteOnly))
+    {
+        QMessageBox::warning(this,"错误","读取书籍信息失败");
+    }
+    QTextStream in(&file);
+    books.clear();
+    while(!in.atEnd())
+    {
+        QString line=in.readLine();
+        QStringList parts=line.split(" ");
+        book temp;
+        temp.name=parts[0];
+        temp.introduce=parts[1];
+        temp.isBorrowed=(parts[2]=="true");
+        books.append(temp);
+    }
+    file.close();
+    QString tip="成功读取";
+    tip+=QString::number(books.size());
+    tip+=+"本书";
+    QMessageBox::warning(this,"提示",tip);
 }
 
 void BorrowBook::UpdataBooks(const QString &Book_Info)
@@ -25,22 +56,7 @@ void BorrowBook::UpdataBooks(const QString &Book_Info)
     NewBook.isBorrowed=false;
     books.append(NewBook);
 }
-/*void BorrowBook::Result(const QString &ans)
-{
-    if(ans=="没找到")
-    {
-        QMessageBox::warning(this,"提示","未找到该书籍");
-    }
-    else if(ans=="被借了")
-    {
-        QMessageBox::warning(this,"提示","该书籍已被借阅");
-    }
-    else
-    {
-        ui->introduce->setText(ans);
-        QMessageBox::warning(this,"提示","借阅成功");
-    }
-}*/
+
 void BorrowBook::on_Return_clicked()
 {
     this->close();
@@ -76,6 +92,18 @@ void BorrowBook::on_find_clicked()
                     newBor.name=books[i].name;
                     bor_books.append(newBor);
                     books[i].isBorrowed=true;
+                    QString path="F:\\Qt\\NewFoolLuoJia1\\tea\\books.txt";
+                    QFile file(path);
+                    if(!file.open(QIODevice::WriteOnly|QIODevice::Text))
+                    {
+                        QMessageBox::warning(this,"错误","更新书籍状态错误");
+                        return;
+                    }
+                    QTextStream out(&file);
+                    for(auto &temp:books)
+                    {
+                        out<<temp.name<<" "<<temp.introduce<<" "<<(temp.isBorrowed?"true":"false")<<"\n";
+                    }
                     isFound=true;
                     QMessageBox::warning(this,"提示","预约成功");
                     break;
@@ -133,6 +161,25 @@ void BorrowBook::on_RTB1_clicked()
             ui->time1->clear();
         }
     }
+    for(auto& temp:books)
+    {
+        if(temp.name==target)
+        {
+            temp.isBorrowed=false;
+            QString path="F:\\Qt\\NewFoolLuoJia1\\tea\\books.txt";
+            QFile file(path);
+            if(!file.open(QIODevice::WriteOnly|QIODevice::Text))
+            {
+                QMessageBox::warning(this,"错误","更新书籍状态错误");
+                return;
+            }
+            QTextStream out(&file);
+            for(auto &temp:books)
+            {
+                out<<temp.name<<" "<<temp.introduce<<" "<<(temp.isBorrowed?"true":"false")<<"\n";
+            }
+        }
+    }
 }
 
 void BorrowBook::on_RTB2_clicked()
@@ -148,6 +195,25 @@ void BorrowBook::on_RTB2_clicked()
             ui->time2->clear();
         }
     }
+    for(auto& temp:books)
+    {
+        if(temp.name==target)
+        {
+            temp.isBorrowed=false;
+            QString path="F:\\Qt\\NewFoolLuoJia1\\tea\\books.txt";
+            QFile file(path);
+            if(!file.open(QIODevice::WriteOnly|QIODevice::Text))
+            {
+                QMessageBox::warning(this,"错误","更新书籍状态错误");
+                return;
+            }
+            QTextStream out(&file);
+            for(auto &temp:books)
+            {
+                out<<temp.name<<" "<<temp.introduce<<" "<<(temp.isBorrowed?"true":"false")<<"\n";
+            }
+        }
+    }
 }
 void BorrowBook::on_RTB3_clicked()
 {
@@ -160,6 +226,25 @@ void BorrowBook::on_RTB3_clicked()
             QMessageBox::warning(this,"提示","归还成功");
             ui->name3->clear();
             ui->time3->clear();
+        }
+    }
+    for(auto& temp:books)
+    {
+        if(temp.name==target)
+        {
+            temp.isBorrowed=false;
+            QString path="F:\\Qt\\NewFoolLuoJia1\\tea\\books.txt";
+            QFile file(path);
+            if(!file.open(QIODevice::WriteOnly|QIODevice::Text))
+            {
+                QMessageBox::warning(this,"错误","更新书籍状态错误");
+                return;
+            }
+            QTextStream out(&file);
+            for(auto &temp:books)
+            {
+                out<<temp.name<<" "<<temp.introduce<<" "<<(temp.isBorrowed?"true":"false")<<"\n";
+            }
         }
     }
 }

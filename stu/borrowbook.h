@@ -5,6 +5,7 @@
 #include"myclient.h"
 #include<QList>
 #include<QDateTime>
+#include<QFile>
 struct book
 {
     QString name;
@@ -28,6 +29,7 @@ class BorrowBook : public QWidget
 public:
     QList<book> books;
     QList<bor_book> bor_books;
+    void loadBooks();
     explicit BorrowBook(MyClient *client,QWidget *parent = nullptr);
     ~BorrowBook();
 
@@ -37,7 +39,6 @@ private slots:
     void on_find_clicked();
 
     void UpdataBooks(const QString &Book_Info);
-    //void Result(const QString &ans);
 
     void on_RTB1_clicked();
 
