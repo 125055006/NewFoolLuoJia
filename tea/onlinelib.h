@@ -23,12 +23,14 @@ public:
 
 private slots:
     void ShowBooks(QList<book> &books);
-   // void AnswerRequest(const QString &target);
+
     void on_Return_clicked();
 
     void on_AddBooks_clicked();
 
     void on_find_clicked();
+
+    void on_delete_2_clicked();
 
 private:
     QString ans;
